@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import CompanySection from './Sections/CompanySection';
-import ContactPersonSection from './Sections/ContactPersonSection';
+import React from "react";
+import styled from "styled-components";
+import CompanySection from "./Sections/CompanySection";
+import ContactPersonSection from "./Sections/ContactPersonSection";
 
 const FormContainer = styled.form`
   width: 46rem;

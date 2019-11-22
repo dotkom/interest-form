@@ -1,6 +1,6 @@
-import React from 'react';
-import Category from '../Category'
-import TextField from '../TextField'
+import React from "react";
+import Category from "../Category";
+import TextField from "../TextField";
 
 const CompanySection = () => {
   return (
