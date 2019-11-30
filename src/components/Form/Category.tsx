@@ -4,7 +4,7 @@ import { colors } from "@dotkomonline/design-system";
 
 interface Props {
   title: String;
-  description: String;
+  description?: String;
   children: React.ReactNode;
 }
 
@@ -22,16 +22,23 @@ const Text = styled.p`
 
 const CategoryContainer = styled.div`
   display: flex;
+  justify-content: center;
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 500px;
 `;
 
 const Category: FC<Props> = ({ title, description, children }) => {
   return (
     <CategoryContainer>
-      <CategoryTitle>{title}</CategoryTitle>
-      <Text>{description}</Text>
-      {children}
+      <FlexContainer>
+        <CategoryTitle>{title}</CategoryTitle>
+        {description && <Text>{description}</Text>}
+        {children}
+      </FlexContainer>
     </CategoryContainer>
   );
 };
