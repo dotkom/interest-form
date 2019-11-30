@@ -1,10 +1,10 @@
-import React from "react";
-import { Formik, Form as FormikForm } from "formik";
-import styled from "styled-components";
-import CompanySection from "./Sections/CompanySection";
-import ContactPersonSection from "./Sections/ContactPersonSection";
-import { colors } from "@dotkomonline/design-system";
-import { ValidationSchema } from "../../util/ValidaitonSchema";
+import React from 'react';
+import { Formik, Form as FormikForm } from 'formik';
+import styled from 'styled-components';
+import CompanySection from './Sections/CompanySection';
+import ContactPersonSection from './Sections/ContactPersonSection';
+import { colors } from '@dotkomonline/design-system';
+import { ValidationSchema } from '../../util/ValidaitonSchema';
 
 const Form = styled(FormikForm)`
   width: 50rem;
@@ -21,13 +21,13 @@ export interface FormData {
 }
 
 const DisplayFormikState = (props: any) => (
-  <div style={{ margin: "1rem 0" }}>
-    <h3 style={{ fontFamily: "monospace" }} />
+  <div style={{ margin: '1rem 0' }}>
+    <h3 style={{ fontFamily: 'monospace' }} />
     <pre
       style={{
-        background: "#f6f8fa",
-        fontSize: ".65rem",
-        padding: ".5rem"
+        background: '#f6f8fa',
+        fontSize: '.65rem',
+        padding: '.5rem',
       }}
     >
       <strong>props</strong> = {JSON.stringify(props, null, 2)}
@@ -37,10 +37,10 @@ const DisplayFormikState = (props: any) => (
 
 const InterestForm = () => {
   const initialValues: FormData = {
-    companyName: "",
-    contactName: "",
-    contactMail: "",
-    phone: ""
+    companyName: '',
+    contactName: '',
+    contactMail: '',
+    phone: '',
   };
   return (
     <Formik
@@ -50,7 +50,7 @@ const InterestForm = () => {
         alert(JSON.stringify(values, null, 2));
       }}
       validationSchema={ValidationSchema}
-      render={formikBag => (
+      render={(formikBag) => (
         <Form>
           <CompanySection />
           <ContactPersonSection />

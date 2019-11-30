@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-import styled from "styled-components";
-import { colors } from "@dotkomonline/design-system";
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { colors } from '@dotkomonline/design-system';
 
 interface Props {
-  title: String;
-  description?: String;
+  title: string;
+  description?: string;
   children: React.ReactNode;
 }
 

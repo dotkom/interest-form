@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { colors, Logo } from "@dotkomonline/design-system";
+import { colors, Logo } from '@dotkomonline/design-system';
 
 const HeaderStyle = styled.header`
   background-color: ${colors.primary};
@@ -26,11 +26,7 @@ export const Header: React.FC = () => {
   return (
     <HeaderStyle>
       <LogoContainer>
-        <Logo
-          width="26rem"
-          primaryColor={colors.white}
-          seocondaryColor={colors.primary}
-        />
+        <Logo width="26rem" primaryColor={colors.white} seocondaryColor={colors.primary} />
       </LogoContainer>
       <Text>Meld-interesse skjema</Text>
     </HeaderStyle>
