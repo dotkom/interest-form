@@ -2,21 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import { Header } from "./components/Header";
 import Form from "./components/Form";
+import { GlobalStyle } from "@dotkomonline/design-system"
 
 const Main = styled.main`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   width: 100%;
+  height: 100%;
 `;
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <>
+      <GlobalStyle/>
+      <Header />
       <Main>
-        <Header />
         <Form />
       </Main>
-    </div>
+    </>
   );
 };
 
