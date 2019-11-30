@@ -3,7 +3,7 @@ import { Formik, Form as FormikForm } from "formik";
 import styled from "styled-components";
 import CompanySection from "./Sections/CompanySection";
 import ContactPersonSection from "./Sections/ContactPersonSection";
-import { colors, TextField } from "@dotkomonline/design-system";
+import { colors } from "@dotkomonline/design-system";
 import { ValidationSchema } from "../../util/ValidaitonSchema";
 
 const Form = styled(FormikForm)`

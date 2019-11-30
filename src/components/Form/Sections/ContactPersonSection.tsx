@@ -1,6 +1,5 @@
 import React from "react";
 import Category from "../Category";
-import { TextField } from "@dotkomonline/design-system";
 import BaseTextField from "./BaseTextField";
 
 const ContactPersonSection = () => {
