@@ -17,12 +17,6 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: Run TypeScript Compiler action
-        uses: icrawl/action-tsc@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          job-name: tsc 
       - name: Run ESLint action
         uses: stefanoeb/eslint-action@1.0.0
         with:
