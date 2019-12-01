@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik, Form as FormikForm } from 'formik';
+import { Formik, Form as FormikForm, FormikProps } from 'formik';
 import styled from 'styled-components';
 import CompanySection from './Sections/CompanySection';
 import ContactPersonSection from './Sections/ContactPersonSection';
@@ -20,7 +20,7 @@ export interface FormData {
   interests: string[];*/
 }
 
-const DisplayFormikState = (props: any) => (
+const DisplayFormikState = (props: FormikProps<FormData>) => (
   <div style={{ margin: '1rem 0' }}>
     <h3 style={{ fontFamily: 'monospace' }} />
     <pre
