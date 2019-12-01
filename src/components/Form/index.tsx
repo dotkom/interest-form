@@ -20,7 +20,7 @@ export interface FormData {
   interests: string[];*/
 }
 
-const DisplayFormikState = (props: any /*FormikProps<FormData>*/) => (
+const DisplayFormikState = (props: FormikProps<FormData>) => (
   <div style={{ margin: '1rem 0' }}>
     <h3 style={{ fontFamily: 'monospace' }} />
     <pre
