@@ -17,10 +17,10 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: eslint
-        uses: reviewdog/action-eslint@v1
+      - name: Run eslint with reviewdog
+        uses: reviewdog/action-eslint@v1.0.0
         with:
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review # Change reporter.
-          eslint_flags: 'src/**/*.{js,ts,tsx} --max-warnings 0'
-
+          level: warning
+          eslint_flags: 'src/'
+        
