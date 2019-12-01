@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Header } from "./components/Header";
-import Form from "./components/Form";
-import { GlobalStyle } from "@dotkomonline/design-system"
+import React from 'react';
+import styled from 'styled-components';
+import { Header } from './components/Header';
+import Form from './components/Form';
+import { GlobalStyle } from '@dotkomonline/design-system';
 
 const Main = styled.main`
   display: flex;
@@ -14,7 +14,7 @@ const Main = styled.main`
 const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Header />
       <Main>
         <Form />
