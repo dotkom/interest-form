@@ -1,5 +1,5 @@
-import React from 'react';
 import { Formik, Form as FormikForm, FormikProps } from 'formik';
+import React from 'react';
 import styled from 'styled-components';
 import CompanySection from './Sections/CompanySection';
 import ContactPersonSection from './Sections/ContactPersonSection';

@@ -1,6 +1,6 @@
+import { FieldProps, Field, FieldValidator } from 'formik';
 import React, { FC } from 'react';
 import { TextField } from '@dotkomonline/design-system';
-import { FieldProps, Field, FieldValidator } from 'formik';
 
 interface BaseTextFieldProps {
   validate: FieldValidator;
