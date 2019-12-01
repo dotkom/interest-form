@@ -1,22 +1,64 @@
 import React from "react";
+import { Formik, Form as FormikForm } from "formik";
 import styled from "styled-components";
 import CompanySection from "./Sections/CompanySection";
 import ContactPersonSection from "./Sections/ContactPersonSection";
+import { colors } from "@dotkomonline/design-system";
+import { ValidationSchema } from "../../util/ValidaitonSchema";
 
-const FormContainer = styled.form`
-  width: 46rem;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
+const Form = styled(FormikForm)`
+  width: 50rem;
+  background-color: ${colors.grayLighten90};
 `;
+export interface FormData {
+  companyName: string;
+  contactName: string;
+  contactMail: string;
+  phone: string;
+  /*
+  semesters: string[];
+  interests: string[];*/
+}
 
-const Form: React.FC = () => {
+const DisplayFormikState = (props: any) => (
+  <div style={{ margin: "1rem 0" }}>
+    <h3 style={{ fontFamily: "monospace" }} />
+    <pre
+      style={{
+        background: "#f6f8fa",
+        fontSize: ".65rem",
+        padding: ".5rem"
+      }}
+    >
+      <strong>props</strong> = {JSON.stringify(props, null, 2)}
+    </pre>
+  </div>
+);
+
+const InterestForm = () => {
+  const initialValues: FormData = {
+    companyName: "",
+    contactName: "",
+    contactMail: "",
+    phone: ""
+  };
   return (
-    <FormContainer>
-      <CompanySection />
-      <ContactPersonSection />
-    </FormContainer>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values, actions) => {
+        console.log({ values, actions });
+        alert(JSON.stringify(values, null, 2));
+      }}
+      validationSchema={ValidationSchema}
+      render={formikBag => (
+        <Form>
+          <CompanySection />
+          <ContactPersonSection />
+          <DisplayFormikState {...formikBag} />
+        </Form>
+      )}
+    />
   );
 };
 
-export default Form;
+export default InterestForm;
