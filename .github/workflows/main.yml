@@ -21,11 +21,9 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: ESLint Action
-        with:
-          job-name: ESLint linting
+      - name: Test Code Linting
         run: npm run lint:eslint
-      - name: Run TypeScript Compiler action
+      - name: Run TypeScript Compiler option
         uses: icrawl/action-tsc@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
