@@ -1,5 +1,5 @@
 name: RAD-RIF CI
-on: 
+on:
   push:
     branches:
       - master
@@ -21,14 +21,11 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: Run ESLint action
-        uses: stefanoeb/eslint-action@1.0.0
-        with:
-          args: './src/**/*.{js,ts,tsx} --max-warnings 0'
-      - name: tsc
+      - name: Test Code Linting
+        run: npm run lint:eslint
+      - name: Run TypeScript Compiler option
         uses: icrawl/action-tsc@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           job-name: TypeScript Compiler
-        

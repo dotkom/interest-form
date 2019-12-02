@@ -30,7 +30,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,tsx}' --fix"
+    "lint": "yarn lint:tsc && yarn lint:eslint",
+    "lint:eslint": "eslint './src/**/*.{js,ts,tsx}' --max-warnings 0",
+    "lint:report": "eslint --output-file eslint_report.json './src/**/*.{js,ts,tsx}'",
+    "lint:tsc": "tsc --noEmit",
+    "lint-fix": "eslint './src/**/*.{js,ts,tsx}' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
