@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import { colors } from '@dotkomonline/design-system';
 
-interface Props {
+interface CategoryProps {
   title: string;
   description?: string;
   children: React.ReactNode;
@@ -31,7 +31,7 @@ const FlexContainer = styled.div`
   width: 500px;
 `;
 
-const Category: FC<Props> = ({ title, description, children }) => {
+const Category: FC<CategoryProps> = ({ title, description, children }) => {
   return (
     <CategoryContainer>
       <FlexContainer>
