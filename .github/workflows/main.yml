@@ -23,9 +23,12 @@ jobs:
           CI: true
       - name: Run ESLint action
         uses: stefanoeb/eslint-action@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }
         with:
-          args: './src/**/*.{js,ts,tsx} --max-warnings 0'
-      - name: tsc
+          args: './src/**/*.{js,ts,tsx} --max-warnings 0' 
+          job-name: ESlint linting
+      - name: Run TypeScript Compiler option
         uses: icrawl/action-tsc@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
