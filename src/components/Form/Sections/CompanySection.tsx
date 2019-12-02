@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import Category from '../Category';
-import BaseTextField from './BaseTextField';
+import TextField from '../Inputs/TextField';
 
 const CompanySection: FC<{}> = () => {
   return (
     <Category title="Bedrift" description="Navn på bedriften du representerer">
-      <BaseTextField name="companyName" label="Bedriftsnavn" placeholder="Bedrift AS" />
+      <TextField name="companyName" label="Bedriftsnavn" placeholder="Bedrift AS" />
     </Category>
   );
 };

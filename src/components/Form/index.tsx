@@ -1,4 +1,4 @@
-import { Formik, Form as FormikForm, FormikProps } from 'formik';
+import { Formik, FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
 import CompanySection from './Sections/CompanySection';
@@ -6,7 +6,7 @@ import ContactPersonSection from './Sections/ContactPersonSection';
 import { colors } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
 
-const Form = styled(FormikForm)`
+const Form = styled.form`
   width: 50rem;
   background-color: ${colors.grayLighten90};
 `;
@@ -47,17 +47,17 @@ const InterestForm = () => {
       initialValues={initialValues}
       onSubmit={(values, actions) => {
         console.log({ values, actions });
-        alert(JSON.stringify(values, null, 2));
       }}
       validationSchema={ValidationSchema}
-      render={(formikBag) => (
+    >
+      {(props: FormikProps<FormData>) => (
         <Form>
           <CompanySection />
           <ContactPersonSection />
-          <DisplayFormikState {...formikBag} />
+          <DisplayFormikState {...props} />
         </Form>
       )}
-    />
+    </Formik>
   );
 };
 
