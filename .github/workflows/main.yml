@@ -21,13 +21,22 @@ jobs:
           yarn install
         env:
           CI: true
-      - name: Run ESLint action
-        uses: stefanoeb/eslint-action@1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Test Code Linting
+        run: npm run lint:eslint
+        continue-on-error: true
+      - name: Save Code Linting Report JSON
+        run: npm run lint:report
+        continue-on-error: true
+      - name: Annotate Code Linting Results
+        uses: ataylorme/eslint-annotate-action@1.0.4
         with:
-          args: './src/**/*.{js,ts,tsx} --max-warnings 0' 
-          job-name: ESlint linting
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          report-json: "eslint_report.json"
+      - name: Upload ESLint report
+        uses: actions/upload-artifact@v1
+        with:
+          name: eslint_report.json
+          path: eslint_report.json
       - name: Run TypeScript Compiler option
         uses: icrawl/action-tsc@v1
         env:
