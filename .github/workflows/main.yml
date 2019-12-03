@@ -21,8 +21,16 @@ jobs:
           yarn install
         env:
           CI: true
+  eslint:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Test Code Linting
         run: npm run lint:eslint
+  tsc:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Run TypeScript Compiler option
         uses: icrawl/action-tsc@v1
         env:
