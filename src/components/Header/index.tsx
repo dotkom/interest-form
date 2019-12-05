@@ -14,6 +14,7 @@ const Text = styled.h2`
   color: ${colors.white};
   text-align: center;
   letter-spacing: 2px;
+  padding: 10px 0;
 `;
 
 const LogoContainer = styled.div`

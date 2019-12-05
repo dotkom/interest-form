@@ -8,7 +8,6 @@ const Main = styled.main`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
 `;
 
 const App: React.FC = () => {
