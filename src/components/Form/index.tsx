@@ -3,21 +3,32 @@ import React from 'react';
 import styled from 'styled-components';
 import CompanySection from './Sections/CompanySection';
 import ContactPersonSection from './Sections/ContactPersonSection';
-import { colors } from '@dotkomonline/design-system';
+import { colors, Button } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
+import SemesterSection from './Sections/SemesterSection';
+import { Semester } from 'util/Semester';
+import TextArea from './Inputs/TextArea';
+import InterestsSection from './Sections/InterestsSection';
 
 const Form = styled.form`
   width: 50rem;
   background-color: ${colors.grayLighten90};
+  box-shadow: 5px 5px 0px 0px #cccc;
+`;
+
+const CheckboxSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 export interface FormData {
   companyName: string;
   contactName: string;
   contactMail: string;
   phone: string;
-  /*
-  semesters: string[];
-  interests: string[];*/
+  semesters?: Semester[];
+  interests: string[];
+  comments: string;
 }
 
 const DisplayFormikState = (props: FormikProps<FormData>) => (
@@ -30,7 +41,8 @@ const DisplayFormikState = (props: FormikProps<FormData>) => (
         padding: '.5rem',
       }}
     >
-      <strong>props</strong> = {JSON.stringify(props, null, 2)}
+      <strong>props</strong>
+      {JSON.stringify(props, null, 2)}
     </pre>
   </div>
 );
@@ -41,6 +53,9 @@ const InterestForm = () => {
     contactName: '',
     contactMail: '',
     phone: '',
+    semesters: [],
+    interests: [],
+    comments: '',
   };
   return (
     <Formik
@@ -54,6 +69,14 @@ const InterestForm = () => {
         <Form>
           <CompanySection />
           <ContactPersonSection />
+          <CheckboxSection>
+            <SemesterSection />
+            <InterestsSection />
+          </CheckboxSection>
+          <TextArea name="comments" label="Kommentarer" placeholder="This is epic" />
+          <Button color="primary" variant="outline">
+            Submit
+          </Button>
           <DisplayFormikState {...props} />
         </Form>
       )}

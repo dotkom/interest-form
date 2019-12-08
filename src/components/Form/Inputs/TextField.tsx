@@ -1,13 +1,16 @@
 import { useField } from 'formik';
-import React, { FC } from 'react';
+import React, { FC, ComponentProps } from 'react';
 import { TextField as DsTextField } from '@dotkomonline/design-system';
 
-const TextField: FC<DsTextField> = (props) => {
-  const [field, meta] = useField<FormData>(props);
+type TextFieldProps = ComponentProps<typeof DsTextField>;
+
+const TextField: FC<TextFieldProps> = (props) => {
+  const { name, onBlur, onChange, value } = props;
+  const [field, meta] = useField({ name, onBlur, onChange, value });
   return (
     <DsTextField
-      errorMessage={meta.error && meta.touched ? meta.error : null}
-      status={meta.touched ? (meta.error ? 'error' : 'success') : null}
+      errorMessage={meta.error && meta.touched ? meta.error : undefined}
+      status={meta.touched ? (meta.error ? 'error' : 'success') : undefined}
       {...field}
       {...props}
     />

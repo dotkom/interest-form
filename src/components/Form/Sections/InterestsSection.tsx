@@ -1,11 +1,7 @@
-import React, { FC } from 'react';
+import React from 'react';
+import CheckboxArea from '../Inputs/CheckboxArea';
 import styled from 'styled-components';
 import { colors } from '@dotkomonline/design-system';
-
-interface CategoryProps {
-  title: string;
-  description?: string;
-}
 
 export const CategoryTitle = styled.h2`
   color: ${colors.grayDarken90};
@@ -14,17 +10,11 @@ export const CategoryTitle = styled.h2`
   font-size: 1.4rem;
 `;
 
-const Text = styled.p`
-  color: ${colors.grayDarken90};
-  font-size: 14px;
-`;
-
 const CategoryContainer = styled.div`
   display: flex;
   justify-content: center;
   flex: 1 1 0px;
 `;
-
 const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,16 +22,16 @@ const FlexContainer = styled.div`
   padding: 20px 10px;
 `;
 
-const Category: FC<CategoryProps> = ({ title, description, children }) => {
+const InterestsSection = () => {
+  const interests = ['Bedrifts-arrangemant', 'Faglig-arrangemant', 'Suge?', 'Techtalks', 'Annonse i Offline'];
   return (
     <CategoryContainer>
       <FlexContainer>
-        <CategoryTitle>{title}</CategoryTitle>
-        {description && <Text>{description}</Text>}
-        {children}
+        <CategoryTitle>{'Interesser'}</CategoryTitle>
+        <CheckboxArea<string> values={interests} name="interests" toLabel={(value: string) => value} />
       </FlexContainer>
     </CategoryContainer>
   );
 };
 
-export default Category;
+export default InterestsSection;
