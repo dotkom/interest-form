@@ -6,9 +6,10 @@ import ContactPersonSection from './Sections/ContactPersonSection';
 import { colors, Button } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
 import SemesterSection from './Sections/SemesterSection';
-import { Semester } from 'util/Semester';
 import TextArea from './Inputs/TextArea';
-import InterestsSection from './Sections/InterestsSection';
+import OtherSection from './Sections/OtherSection';
+import EventTypeSection from './Sections/EventTypeSection';
+import { FormData } from 'models/Form/Form';
 
 const Form = styled.form`
   width: 50rem;
@@ -21,15 +22,6 @@ const CheckboxSection = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-export interface FormData {
-  companyName: string;
-  contactName: string;
-  contactMail: string;
-  phone: string;
-  semesters?: Semester[];
-  interests: string[];
-  comments: string;
-}
 
 const DisplayFormikState = (props: FormikProps<FormData>) => (
   <div style={{ margin: '1rem 0' }}>
@@ -71,7 +63,8 @@ const InterestForm = () => {
           <ContactPersonSection />
           <CheckboxSection>
             <SemesterSection />
-            <InterestsSection />
+            <EventTypeSection />
+            <OtherSection />
           </CheckboxSection>
           <TextArea name="comments" label="Kommentarer" placeholder="This is epic" />
           <Button color="primary" variant="outline">
