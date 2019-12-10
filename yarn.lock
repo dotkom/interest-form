@@ -928,10 +928,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
-"@dotkomonline/design-system@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@dotkomonline/design-system/-/design-system-0.11.0.tgz#fe1b053c3d99280760dc1288758d95fea01d5a67"
-  integrity sha512-h98T72A2wYQn2CGWlXzYcWLYS79LeHhgCRpQ959Xhl1yIwPbtY07A9Wac/AOGtNSX6HVWNQOHTNbVUwtxiVrng==
+"@dotkomonline/design-system@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@dotkomonline/design-system/-/design-system-0.11.1.tgz#d1f5f762fd172fcf05c4e106205d32b790406ee6"
+  integrity sha512-sjheuzNtxPrDlm6ooSux38KuHf0athxYDUZrrAAu105Not95UFewYZQn6YrukPRZstUwtLv3WlgXmZmjAvCikA==
 
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.5"
