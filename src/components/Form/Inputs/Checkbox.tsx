@@ -1,27 +1,27 @@
-import React, { useState, ComponentProps } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import { Checkbox as DsCheckbox } from '@dotkomonline/design-system';
-import { useField, ArrayHelpers } from 'formik';
+import { FieldArrayRenderProps } from 'formik';
 
 interface CheckboxProps<T> extends ComponentProps<typeof DsCheckbox> {
-  arrayHelpers: ArrayHelpers;
-  data: T;
+  arrayHelpers: FieldArrayRenderProps;
+  value: T;
   key: string;
-  index: number;
   name: string;
 }
-function Checkbox<T>({ data, arrayHelpers, label, index, name, ...props }: CheckboxProps<T>) {
+function Checkbox<T>({ name, label, arrayHelpers, value, ...props }: CheckboxProps<T>) {
   const [checked, setChecked] = useState(false);
-  const [field] = useField<T[]>(name);
-  const handleOnCheck = (isChecked: boolean): void => {
+  const handleOnChange = (isChecked: boolean): void => {
     setChecked(isChecked);
-    if (isChecked) {
-      arrayHelpers.insert(index, data);
+    if (checked) {
+      arrayHelpers.remove(
+        arrayHelpers.form.values[name].findIndex((x: T) => JSON.stringify(x) === JSON.stringify(value))
+      );
     } else {
-      arrayHelpers.remove(index);
+      arrayHelpers.push(value);
     }
   };
 
-  return <DsCheckbox onCheck={handleOnCheck} isChecked={checked} label={label} {...props} {...field} />;
+  return <DsCheckbox name={arrayHelpers.name} isChecked={checked} onChange={handleOnChange} label={label} {...props} />;
 }
 
 export default Checkbox;

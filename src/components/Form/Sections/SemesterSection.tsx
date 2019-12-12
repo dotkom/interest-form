@@ -1,5 +1,6 @@
 import React from 'react';
-import { getAvailableSemesters, Semester } from 'util/Semester';
+import { getAvailableSemesters } from 'util/Semester';
+import { Semester } from 'models/Semester';
 import CheckboxArea from '../Inputs/CheckboxArea';
 import Category from '../Category';
 
@@ -7,11 +8,7 @@ const SemesterSection = () => {
   const semesters = getAvailableSemesters();
   return (
     <Category title="Semester">
-      <CheckboxArea<Semester>
-        values={semesters}
-        name="semesters"
-        toLabel={(value) => value.season + value.year.toString().substr(-2)}
-      />
+      <CheckboxArea<Semester> values={semesters} name="semesters" />
     </Category>
   );
 };

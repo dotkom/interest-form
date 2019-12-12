@@ -2,38 +2,32 @@ import React from 'react';
 import Checkbox from '../Inputs/Checkbox';
 import { FieldArray } from 'formik';
 import styled from 'styled-components';
-//import { CategoryTitle } from '../Category';
+import { CheckboxItem } from 'models/Form/Inputs/Checkbox';
 
 const CheckboxContainer = styled.div`
   display: grid;
   gap: 1rem;
   padding-left: 10px;
 `;
-/*
-const GroupTitle = styled(CategoryTitle)`
-  border-bottom: 1px solid blue;
-`;*/
 
 interface CheckboxAreaProps<T> {
-  values: T[];
+  values: CheckboxItem<T>[];
   name: string;
-  toLabel: (value: T) => string;
 }
 
-function CheckboxArea<T>({ values, name, toLabel }: CheckboxAreaProps<T>) {
+function CheckboxArea<T>({ values, name }: CheckboxAreaProps<T>) {
   return (
     <>
       <FieldArray name={name}>
         {(arrayHelpers) => (
           <CheckboxContainer>
-            {values.map((data, index) => (
+            {values.map((item, i) => (
               <Checkbox
-                name={name}
-                label={toLabel(data)}
-                data={data}
+                name={`${arrayHelpers.name}.${i}`}
+                label={item.label}
+                value={item.value}
                 arrayHelpers={arrayHelpers}
-                key={name + index}
-                index={index}
+                key={`${arrayHelpers.name}.${i}`}
               />
             ))}
           </CheckboxContainer>
