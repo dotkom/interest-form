@@ -16,7 +16,7 @@ const toLabel = (semester: Semester): string => semester.season + semester.year.
  */
 const getNextSemester = (currentSemester: Semester): Semester => {
   const { year, season } = currentSemester;
-  return season === 'V' ? { year, season: 'H' } : { year: year + 1, season };
+  return season === 'V' ? { year, season: 'H' } : { year: year + 1, season: 'V' };
 };
 
 /**
