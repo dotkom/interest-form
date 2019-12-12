@@ -7,7 +7,7 @@ import { CheckboxItem } from 'models/Form/Inputs/Checkbox';
 const CheckboxContainer = styled.div`
   display: grid;
   gap: 1rem;
-  padding-left: 10px;
+  margin-top: 0.5rem;
 `;
 
 interface CheckboxAreaProps<T> {
