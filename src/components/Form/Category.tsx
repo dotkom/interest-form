@@ -15,7 +15,7 @@ interface CategoryProps {
 
 export const CategoryTitle = styled.h2`
   color: ${colors.grayDarken90};
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-bottom: 10px;
   font-size: 1.4rem;
 `;

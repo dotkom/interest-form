@@ -59,12 +59,12 @@ const InterestForm = () => {
       {() => (
         <Form>
           <Header />
+          <InformationSection />
           <CompanySection />
           <ContactPersonSection />
           <CheckboxSection />
           <CommentsSection />
           <SubmitButton />
-          <InformationSection />
         </Form>
       )}
     </Formik>
