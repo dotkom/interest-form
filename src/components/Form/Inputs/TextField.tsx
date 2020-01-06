@@ -11,7 +11,7 @@ const TextFieldContainer = styled.div`
 
 const TextField: FC<TextFieldProps> = (props) => {
   const { name, onBlur, onChange, value } = props;
-  const [field, meta] = useField({ name, onBlur, onChange, value });
+  const [field, meta] = useField<string>({ name, onBlur, onChange, value });
   return (
     <TextFieldContainer>
       <DsTextField

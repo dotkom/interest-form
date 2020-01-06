@@ -6,7 +6,7 @@ type TextAreaProps = ComponentProps<typeof DsTextArea>;
 
 const TextArea: FC<TextAreaProps> = (props) => {
   const { name, onBlur, onChange, value } = props;
-  const [field, meta] = useField({ name, onBlur, onChange, value });
+  const [field, meta] = useField<string>({ name, onBlur, onChange, value });
   return <DsTextArea errorMessage={meta.error && meta.touched ? meta.error : undefined} {...field} {...props} />;
 };
 
