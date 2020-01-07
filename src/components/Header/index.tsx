@@ -8,6 +8,7 @@ const HeaderStyle = styled.header`
   display: grid;
   justify-content: center;
   box-sizing: border-box;
+  width: 100%;
 `;
 
 const Text = styled.h2`
