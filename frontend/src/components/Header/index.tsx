@@ -9,6 +9,7 @@ const HeaderStyle = styled.header`
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
 `;
 
 const Text = styled.h2`
