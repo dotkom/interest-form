@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import styled from 'styled-components';
 import { Button } from '@dotkomonline/design-system';
 
@@ -8,11 +8,18 @@ const ButtonContainer = styled.div`
   justify-content: flex-end;
   width: 100%;
 `;
+interface SubmitButtonProps {
+  onClick: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
+}
 
-const SubmitButton = () => {
+const SubmitButton = ({ onClick }: SubmitButtonProps) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onClick(e);
+  };
   return (
     <ButtonContainer>
-      <Button color="primary" value="Submit" />
+      <Button color="primary" value="Submit" onClick={handleSubmit} />
     </ButtonContainer>
   );
 };

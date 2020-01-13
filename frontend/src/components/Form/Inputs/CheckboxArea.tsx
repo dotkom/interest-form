@@ -23,7 +23,7 @@ function CheckboxArea<T>({ values, name }: CheckboxAreaProps<T>) {
           <CheckboxContainer>
             {values.map((item, i) => (
               <Checkbox
-                name={`${arrayHelpers.name}.${i}`}
+                name={arrayHelpers.name}
                 label={item.label}
                 value={item.value}
                 arrayHelpers={arrayHelpers}

@@ -51,12 +51,12 @@ const InterestForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, actions) => {
-        console.log({ values, actions });
+      onSubmit={(values) => {
+        console.log(values);
       }}
       validationSchema={ValidationSchema}
     >
-      {() => (
+      {({ handleSubmit }) => (
         <Form>
           <Header />
           <InformationSection />
@@ -64,7 +64,7 @@ const InterestForm = () => {
           <ContactPersonSection />
           <CheckboxSection />
           <CommentsSection />
-          <SubmitButton />
+          <SubmitButton onClick={handleSubmit} />
         </Form>
       )}
     </Formik>

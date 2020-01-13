@@ -7,6 +7,7 @@ type TextFieldProps = ComponentProps<typeof DsTextField>;
 
 const TextFieldContainer = styled.div`
   margin: 0.7rem 0;
+  max-width: 400px;
 `;
 
 const TextField: FC<TextFieldProps> = (props) => {
