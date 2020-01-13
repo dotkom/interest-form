@@ -12,4 +12,5 @@ export const ValidationSchema = Yup.object<FormData>().shape({
     .matches(/^[\d\+\s]+/, 'A phone number should only contain digits!')
     .min(8, 'Too short!')
     .max(10, 'Too long!'),
+  comments: Yup.string().required('Required'),
 });

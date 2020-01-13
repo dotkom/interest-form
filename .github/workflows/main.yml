@@ -16,16 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Intall dependeinices
+      - name: yarn install and lint
+        working-directory: ./frontend
         run: |
-          yarn install
+            yarn install
+            yarn lint
         env:
           CI: true
-      - name: Test Code Linting
-        run: npm run lint:eslint
-      - name: Run TypeScript Compiler option
-        uses: icrawl/action-tsc@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          job-name: TypeScript Compiler
