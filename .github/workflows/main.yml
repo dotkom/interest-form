@@ -23,9 +23,3 @@ jobs:
             yarn lint
         env:
           CI: true
-      - name: Run TypeScript Compiler option
-        uses: icrawl/action-tsc@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          job-name: TypeScript Compiler
