@@ -24,6 +24,7 @@ jobs:
         env:
           CI: true
       - name: Run TypeScript Compiler option
+        working-directory: ./frontend
         uses: icrawl/action-tsc@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
