@@ -21,23 +21,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
 `;
-/*
-const DisplayFormikState = (props: FormikProps<FormData>) => (
-  <div style={{ margin: '1rem 0' }}>
-    <h3 style={{ fontFamily: 'monospace' }} />
-    <pre
-      style={{
-        background: '#f6f8fa',
-        fontSize: '.65rem',
-        padding: '.5rem',
-      }}
-    >
-      <strong>props</strong>
-      {JSON.stringify(props, null, 2)}
-    </pre>
-  </div>
-);
-*/
+
 const InterestForm = () => {
   const initialValues: FormData = {
     companyName: '',
@@ -51,8 +35,14 @@ const InterestForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => {
-        console.log(values);
+      onSubmit={async (values) => {
+        await fetch(`http://localhost:9090/sendmail`, {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
       }}
       validationSchema={ValidationSchema}
     >
