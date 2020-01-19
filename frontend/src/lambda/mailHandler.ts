@@ -1,7 +1,8 @@
 import nodemailer from 'nodemailer';
 import { FormData } from 'models/Form/Form';
-import { getFormattedText } from '../util/FormatUtils';
+import { getFormattedData, confirmationMail } from '../util/MailFormatters';
 import dotenv from 'dotenv';
+import { MailOptions } from 'nodemailer/lib/sendmail-transport';
 
 dotenv.config();
 
@@ -15,17 +16,27 @@ export const handleMail = async (data: FormData): Promise<boolean> => {
       pass: process.env.MAIL_PASSWORD,
     },
   });
-  const info = await transporter
-    .sendMail({
-      from: process.env.USER_MAIL,
-      to: process.env.RECIPIENT,
-      subject: `[Interesse] ${data.companyName}`,
-      html: getFormattedText(data),
-    })
-    .catch(() => {
+  const sendMail = async (mailOptions: MailOptions) => {
+    await transporter.sendMail(mailOptions).catch(() => {
       return false;
     });
-  console.log('Message sent: ' + info.messageId);
+  };
+
+  // Sends mail to bedkom
+  sendMail({
+    from: process.env.USER_MAIL,
+    to: process.env.RECIPIENT,
+    subject: `[Interesse] ${data.companyName}`,
+    html: getFormattedData(data),
+  });
+
+  // Sends mail to the contact person
+  sendMail({
+    from: process.env.USER_MAIL,
+    to: data.contactMail,
+    subject: `Deres interesse har blitt meldt`,
+    html: confirmationMail(data),
+  });
 
   return true;
 };
