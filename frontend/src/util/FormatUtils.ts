@@ -4,7 +4,7 @@ export const getFormattedText = (form: FormData) => {
   const { companyName, comments, contactName, contactMail, phone, interests } = form;
   return `
     <p>
-    ${companyName} har meldt interesse<br>
+    Bedriftsnavn: ${companyName}
     <b>Kontaktperson</b><br>
     Navn: ${contactName}<br>
     E-post: ${contactMail}<br>

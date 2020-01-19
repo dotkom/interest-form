@@ -13,9 +13,7 @@ function Checkbox<T>({ name, label, arrayHelpers, value, ...props }: CheckboxPro
   const handleOnChange = (isChecked: boolean): void => {
     setChecked(isChecked);
     if (checked) {
-      arrayHelpers.remove(
-        arrayHelpers.form.values[name].findIndex((x: T) => JSON.stringify(x) === JSON.stringify(value))
-      );
+      arrayHelpers.remove(arrayHelpers.form.values[name].indexOf(value));
     } else {
       arrayHelpers.push(value);
     }
