@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { FormData } from 'models/Form/Form';
-import { getFormattedText, confirmationMail } from '../util/MailFormatters';
+import { getFormattedData, confirmationMail } from '../util/MailFormatters';
 import dotenv from 'dotenv';
 import { MailOptions } from 'nodemailer/lib/sendmail-transport';
 
@@ -27,7 +27,7 @@ export const handleMail = async (data: FormData): Promise<boolean> => {
     from: process.env.USER_MAIL,
     to: process.env.RECIPIENT,
     subject: `[Interesse] ${data.companyName}`,
-    html: getFormattedText(data),
+    html: getFormattedData(data),
   });
 
   // Sends mail to the contact person
@@ -37,5 +37,6 @@ export const handleMail = async (data: FormData): Promise<boolean> => {
     subject: `Deres interesse har blitt meldt`,
     html: confirmationMail(data),
   });
+
   return true;
 };

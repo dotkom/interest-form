@@ -1,6 +1,6 @@
 import { FormData } from 'models/Form/Form';
 
-export const formatFormData = (form: FormData) => {
+export const getFormattedData = (form: FormData) => {
   const { companyName, comments, contactName, contactMail, phone, interests } = form;
   return `
     <p>
@@ -20,6 +20,6 @@ export const formatFormData = (form: FormData) => {
 
 export const confirmationMail = (form: FormData) => {
   return `<p>Vi vil meddele at deres interesse med følgende data har blitt sendt inn:</p>
-  ${formatFormData(form)}
+  ${getFormattedData(form)}
   `;
 };
