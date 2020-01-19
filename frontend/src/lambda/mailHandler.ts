@@ -4,6 +4,7 @@ import { getFormattedText } from '../util/FormatUtils';
 import dotenv from 'dotenv';
 
 dotenv.config();
+
 export const handleMail = async (data: FormData): Promise<boolean> => {
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',

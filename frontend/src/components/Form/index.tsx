@@ -28,7 +28,6 @@ const InterestForm = () => {
     contactName: '',
     contactMail: '',
     phone: '',
-    semesters: [],
     interests: [],
     comments: '',
   };
