@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: yarn install and lint
-        working-directory: ./frontend
+        working-directory: ./
         run: |
             yarn install
             yarn lint
