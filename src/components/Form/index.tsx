@@ -37,11 +37,13 @@ const InterestForm = () => {
       onSubmit={async (values) => {
         await fetch(`http://localhost:9090/sendmail`, {
           method: 'post',
+          mode: 'same-origin',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(values),
         });
+        console.log('SENT MAIL');
       }}
       validationSchema={ValidationSchema}
     >

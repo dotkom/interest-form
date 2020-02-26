@@ -11,7 +11,7 @@ export const getFormattedData = (form: FormData) => {
     E-post: ${contactMail}<br>
     Telefon: ${phone}<br><br>
     <b>Interesser</b><br>
-    <ul>${interests.map((interest) => `<li>${interest}</li>`)}</ul><br><br>
+    <ul>${interests.map((interest: string) => `<li>${interest}</li>`).join('\n')}</ul><br><br>
     <b>Kommentar</b><br>
     <p>${comments}</p><br>
     </p>
