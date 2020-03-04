@@ -1,4 +1,4 @@
-import { FormData } from 'models/Form/Form';
+import { FormData } from '../../../src/models/Form/Form';
 
 export const getFormattedData = (form: FormData) => {
   const { companyName, comments, contactName, contactMail, phone, interests } = form;

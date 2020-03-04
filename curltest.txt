@@ -1,0 +1,4 @@
+curl -H "Content-Type: application/json" \
+  -X POST \
+  -d '{"companyName":"Aspergerunionen","contactName":"Anhkha Vo","contactMail":"anhkhav@gmail.com","phone":"+4746785755","interests":["bedpres","techtalks","kurs","offlineAd","offlineAd"],"comments":"JEg er skikkelelig kul og tøff"}' \
+  https://rg0qavkex6.execute-api.eu-west-1.amazonaws.com/dev/sendMail

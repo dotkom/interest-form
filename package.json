@@ -43,6 +43,8 @@
     "build:backend": "rm -rf ./build/ && tsc",
     "start:backend": "node build/start.js",
     "build:frontend": "react-scripts build",
+    "build:lambda": "tsc src/lambda/hello.ts",
+    "deploy:lambda": "yarn build:lambda && sls deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn lint:tsc && yarn lint:eslint",
