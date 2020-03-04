@@ -7,7 +7,7 @@ const ContactPersonSection = () => {
     <Category title="Kontaktperson">
       <TextField label="Navn" name="contactName" placeholder="Ole Nordmann" />
       <TextField name="contactMail" type="email" label="E-post" placeholder="olenordmann@bedrift.com" />
-      <TextField name="phone" type="tel" label="Telefonnummer" placeholder="360 69 420" />
+      <TextField name="phone" type="tel" label="Telefonnummer" placeholder="+47 360 69 420" />
     </Category>
   );
 };

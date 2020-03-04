@@ -9,8 +9,10 @@ export const ValidationSchema = Yup.object<FormData>().shape({
     .email('Invalid mail'),
   phone: Yup.string()
     .required('Required')
-    .matches(/^[\d\+\s]+/, 'A phone number should only contain digits!')
-    .min(8, 'Too short!')
-    .max(10, 'Too long!'),
+    .matches(
+      /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/,
+      'Phone number is invalid, please try the format of +xx xxx xx xxx'
+    )
+    .min(8, 'Too short!'),
   comments: Yup.string().required('Required'),
 });
