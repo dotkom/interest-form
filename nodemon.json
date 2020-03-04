@@ -1,6 +1,6 @@
 {
-  "watch": ["src/lambda"],
+  "watch": ["src/server","src/util"],
   "ext": "ts",
   "ignore": ["src/public"],
-  "exec": "NODE_ENV=development ts-node src/lambda/server.ts"
+  "exec": "NODE_ENV=development ts-node src/server/server.ts"
 }

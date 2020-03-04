@@ -15,12 +15,11 @@ app.post('/sendmail', async (req: Request, res: Response) => {
   await ValidationSchema.validate(req.body).catch((err: ValidationError) => {
     res.status(422).send(err);
   });
-
   const response = await handleMail(req.body as FormData);
   if (!response) {
-    res.send(500).send('Failed at sending mail');
+    res.status(500).send('Failed at sending mail');
   } else {
-    res.send(200).send('Mail sent!');
+    res.status(200).send('Mail sent!');
   }
 });
 
