@@ -5,7 +5,7 @@ export const getFormattedData = (form: FormData) => {
   return `
     <p>
     <b>Bedrift</b><br>
-    Bedriftsnavn: ${companyName}
+    Bedriftsnavn: ${companyName}<br>
     <b>Kontaktperson</b><br>
     Navn: ${contactName}<br>
     E-post: ${contactMail}<br>

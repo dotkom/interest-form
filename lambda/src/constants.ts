@@ -22,3 +22,8 @@ export const MAIL_SENT_SUCCESS = {
   statusCode: 200,
   body: 'Mail sent!',
 };
+
+export const INVALID_AUTHENTICATION = {
+  statusCode: 403,
+  body: 'Invalid authentication to mail account',
+};

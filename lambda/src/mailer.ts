@@ -1,5 +1,5 @@
 import { APIGatewayEvent } from 'aws-lambda';
-import { INVALID_DATA, MAIL_SENT_SUCCESS, SERVER_ERROR } from './constants';
+import { INVALID_DATA, MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION } from './constants';
 import nodemailer from 'nodemailer';
 import { getFormattedData, confirmationMail } from './util/MailFormatters';
 import { MailOptions } from 'nodemailer/lib/sendmail-transport';
@@ -7,6 +7,7 @@ import { SENDER_EMAIL } from './constants';
 import { ValidationSchema } from './util/ValidaitonSchema';
 import { FormData } from '../../src/models/Form/Form';
 import { ValidationError } from 'yup';
+import { getAuthFile } from './util/authFile';
 
 interface Response {
   statusCode: number;
@@ -14,6 +15,11 @@ interface Response {
 }
 
 export const handler = async (event: APIGatewayEvent): Promise<Response> => {
+  const authFile = await getAuthFile();
+  if (!authFile) {
+    return INVALID_AUTHENTICATION;
+  }
+
   if (!event.body) {
     return INVALID_DATA;
   }
@@ -32,13 +38,10 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
     auth: {
       type: 'OAuth2',
       user: SENDER_EMAIL,
-      serviceClient: process.env.CLIENT_ID,
-      privateKey: process.env.PRIVATE_KEY,
+      serviceClient: authFile.client_id,
+      privateKey: authFile.private_key,
     },
   });
-
-  console.log('CLIENT ID: ' + process.env.CLIENT_ID);
-  console.log('PRIVATE KEY:' + process.env.PRIVATE_KEY);
 
   const sendMail = async (mailOptions: MailOptions) => {
     await transporter.sendMail(mailOptions);
@@ -46,15 +49,13 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
 
   // Sends mail to bedkom
   try {
-    await transporter.verify().then((res) => console.log(res));
-    console.log('HEi4');
+    await transporter.verify().catch((err) => console.log(err));
     await sendMail({
       from: SENDER_EMAIL,
       to: 'anhkhav@gmail.com',
       subject: `[Interesse] ${data.companyName}`,
       html: getFormattedData(data),
     });
-    console.log('HEI5');
 
     // Sends confirmation mail to the contact person
     await sendMail({
@@ -63,7 +64,6 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
       subject: `Deres interesse har blitt meldt`,
       html: confirmationMail(data),
     });
-    console.log('HEI6');
     return MAIL_SENT_SUCCESS;
   } catch (err) {
     return SERVER_ERROR(err);
