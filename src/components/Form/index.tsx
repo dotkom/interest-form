@@ -12,16 +12,6 @@ import { Header } from 'components/Header';
 import CommentsSection from './Sections/CommentsSection';
 import SubmitButton from './SubmitButton';
 
-const Form = styled.form`
-  width: 50rem;
-  background-color: ${colors.white};
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const InterestForm = () => {
   const initialValues: FormData = {
     companyName: '',
@@ -61,5 +51,15 @@ const InterestForm = () => {
     </Formik>
   );
 };
+
+const Form = styled.form`
+  width: 50rem;
+  background-color: ${colors.white};
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default InterestForm;
