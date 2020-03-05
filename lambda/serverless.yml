@@ -3,7 +3,7 @@ service: interest-mailer
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
+  stage: prod
   region: eu-west-1
 
 functions:
