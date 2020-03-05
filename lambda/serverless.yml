@@ -1,16 +1,18 @@
 service: interest-mailer
 
 provider:
-    name: aws
-    runtime: nodejs12.x
-    stage: dev
-    region: eu-west-1
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-1
 
 functions:
-    interest-mailer: 
-        handler: dist/lambda/src/mailer.handler
-        events:
-            - http:
-                    path: sendMail 
-                    method: POST 
-                    cors: true
+  interest-mailer:
+    handler: dist/lambda/src/mailer.handler
+    package:
+      excludeDevDependencies: true
+    events:
+      - http:
+          path: sendMail
+          method: POST
+          cors: true

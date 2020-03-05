@@ -1,7 +1,7 @@
 import { APIGatewayEvent } from 'aws-lambda';
 import { INVALID_DATA, MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION } from './constants';
 import nodemailer from 'nodemailer';
-import { getFormattedData, confirmationMail } from './util/MailFormatters';
+import { getFormattedData } from './util/MailFormatters';
 import { MailOptions } from 'nodemailer/lib/sendmail-transport';
 import { SENDER_EMAIL } from './constants';
 import { ValidationSchema } from './util/ValidaitonSchema';
@@ -54,7 +54,7 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
       from: SENDER_EMAIL,
       to: 'anhkhav@gmail.com',
       subject: `[Interesse] ${data.companyName}`,
-      html: getFormattedData(data),
+      html: getFormattedData(data, false),
     });
 
     // Sends confirmation mail to the contact person
@@ -62,7 +62,7 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
       from: SENDER_EMAIL,
       to: data.contactMail,
       subject: `Deres interesse har blitt meldt`,
-      html: confirmationMail(data),
+      html: getFormattedData(data, true),
     });
     return MAIL_SENT_SUCCESS;
   } catch (err) {
