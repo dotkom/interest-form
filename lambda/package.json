@@ -1,0 +1,18 @@
+{
+  "name": "hello-world-lambda",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "deploy": "yarn build && sls deploy",
+    "deploy:only": "sls deploy"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.46",
+    "@types/node": "^13.7.7",
+    "@types/nodemailer": "^6.4.0",
+    "@types/yup": "^0.26.32",
+    "aws-sdk": "^2.633.0",
+    "nodemailer": "^6.4.4",
+    "typescript": "^3.8.3",
+    "yup": "^0.27.0"
+  }
+}

@@ -35,6 +35,7 @@ const InterestForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={async (values) => {
+        console.log(JSON.stringify(values));
         await fetch(`http://localhost:9090/sendmail`, {
           method: 'post',
           mode: 'same-origin',

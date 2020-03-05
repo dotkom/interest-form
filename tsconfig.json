@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "skipLibCheck": true,
     "jsx": "react",
     "outDir": "dist",
@@ -28,5 +32,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
