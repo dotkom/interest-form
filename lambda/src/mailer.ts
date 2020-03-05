@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 import { getFormattedData, confirmationMail } from './util/MailFormatters';
 import { MailOptions } from 'nodemailer/lib/sendmail-transport';
 import { SENDER_EMAIL } from './constants';
-import { ValidationSchema } from '../../src/util/ValidaitonSchema';
+import { ValidationSchema } from './util/ValidaitonSchema';
 import { FormData } from '../../src/models/Form/Form';
 import { ValidationError } from 'yup';
 import { getAuthFile } from './util/authFile';
