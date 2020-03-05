@@ -2,12 +2,6 @@ import React, { FormEvent } from 'react';
 import styled from 'styled-components';
 import { Button } from '@dotkomonline/design-system';
 
-const ButtonContainer = styled.div`
-  display: flex;
-  padding: 20px 50px;
-  justify-content: flex-end;
-  width: 100%;
-`;
 interface SubmitButtonProps {
   onClick: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
 }
@@ -24,4 +18,10 @@ const SubmitButton = ({ onClick }: SubmitButtonProps) => {
   );
 };
 
+const ButtonContainer = styled.div`
+  display: flex;
+  padding: 20px 50px;
+  justify-content: flex-end;
+  width: 100%;
+`;
 export default SubmitButton;

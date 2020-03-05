@@ -13,33 +13,6 @@ interface CategoryProps {
   link?: LinkText;
 }
 
-export const CategoryTitle = styled.h2`
-  color: ${colors.grayDarken90};
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-`;
-
-const Text = styled.p`
-  color: ${colors.grayDarken90};
-  font-size: 14px;
-  margin-bottom: 0.7rem;
-`;
-
-const CategoryContainer = styled.section`
-  display: flex;
-  justify-content: center;
-  flex: 1 1 0px;
-  width: 100%;
-  padding: 20px 50px;
-`;
-
-const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-`;
-
 /**
  *
  * @param description descriptionText
@@ -50,27 +23,53 @@ const getDescription = (description: string, link?: LinkText) => {
   if (link && description.includes(link.subString)) {
     const subIndex = description.indexOf(link.subString);
     return (
-      <Text>
+      <S.Text>
         {description.substr(0, subIndex)}
         <Link>{link.subString}</Link>
         {description.substr(subIndex + link.subString.length - 1, -1)}
-      </Text>
+      </S.Text>
     );
   } else {
-    return <Text>{description}</Text>;
+    return <S.Text>{description}</S.Text>;
   }
 };
 
 const Category: FC<CategoryProps> = ({ title, link, description, children }) => {
   return (
-    <CategoryContainer>
-      <FlexContainer>
-        {title && <CategoryTitle>{title}</CategoryTitle>}
+    <S.Section>
+      <S.Wrapper>
+        {title && <S.Title>{title}</S.Title>}
         {description && getDescription(description, link)}
         {children}
-      </FlexContainer>
-    </CategoryContainer>
+      </S.Wrapper>
+    </S.Section>
   );
+};
+
+const S = {
+  Title: styled.h2`
+    color: ${colors.grayDarken90};
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+  `,
+  Text: styled.p`
+    color: ${colors.grayDarken90};
+    font-size: 14px;
+    margin-bottom: 0.7rem;
+  `,
+  Wrapper: styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  `,
+  Section: styled.section`
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0px;
+    width: 100%;
+    padding: 20px 50px;
+  `,
 };
 
 export default Category;
