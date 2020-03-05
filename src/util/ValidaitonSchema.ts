@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { FormData } from 'models/Form/Form';
+import { FormData } from '../models/Form/Form';
 
 export const ValidationSchema = Yup.object<FormData>().shape({
   companyName: Yup.string().required('Required'),
