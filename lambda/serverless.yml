@@ -16,3 +16,6 @@ functions:
           path: sendMail
           method: POST
           cors: true
+
+plugins:
+  - serverless-plugin-optimize
