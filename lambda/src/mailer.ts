@@ -1,18 +1,20 @@
 import { APIGatewayEvent } from 'aws-lambda';
-import { INVALID_DATA, MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION } from './constants';
+import {
+  Response,
+  INVALID_DATA,
+  MAIL_SENT_SUCCESS,
+  SERVER_ERROR,
+  INVALID_AUTHENTICATION,
+  RECIEVER,
+  SENDER_EMAIL,
+} from './constants';
 import nodemailer from 'nodemailer';
 import { getFormattedData } from './util/MailFormatters';
 import { MailOptions } from 'nodemailer/lib/sendmail-transport';
-import { SENDER_EMAIL } from './constants';
 import { ValidationSchema } from './util/ValidaitonSchema';
 import { FormData } from '../../src/models/Form/Form';
 import { ValidationError } from 'yup';
 import { getAuthFile } from './util/authFile';
-
-interface Response {
-  statusCode: number;
-  body: string;
-}
 
 export const handler = async (event: APIGatewayEvent): Promise<Response> => {
   const authFile = await getAuthFile();
@@ -43,22 +45,18 @@ export const handler = async (event: APIGatewayEvent): Promise<Response> => {
     },
   });
 
-  const sendMail = async (mailOptions: MailOptions) => {
-    await transporter.sendMail(mailOptions);
-  };
-
-  // Sends mail to bedkom
   try {
     await transporter.verify().catch((err) => console.log(err));
-    await sendMail({
+    // Sends mail to bedkom
+    await transporter.sendMail({
       from: SENDER_EMAIL,
-      to: 'anhkhav@gmail.com',
+      to: RECIEVER,
       subject: `[Interesse] ${data.companyName}`,
       html: getFormattedData(data, false),
     });
 
     // Sends confirmation mail to the contact person
-    await sendMail({
+    await transporter.sendMail({
       from: SENDER_EMAIL,
       to: data.contactMail,
       subject: `Deres interesse har blitt meldt`,
