@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import CompanySection from './Sections/CompanySection';
 import ContactPersonSection from './Sections/ContactPersonSection';
-import { colors } from '@dotkomonline/design-system';
+import { colors, media } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
 import CheckboxSection from './Sections/CheckboxSection';
 import { FormData } from 'models/Form/Form';
@@ -53,13 +53,18 @@ const InterestForm = () => {
 };
 
 const Form = styled.form`
-  width: 50rem;
+  max-width: 50rem;
+  width: 90%;
   background-color: ${colors.white};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${media.mobileOnly} {
+    width: 100%;
+  }
 `;
 
 export default InterestForm;

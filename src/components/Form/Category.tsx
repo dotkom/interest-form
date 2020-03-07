@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { colors, Link } from '@dotkomonline/design-system';
+import { colors, Link, media } from '@dotkomonline/design-system';
 
 interface LinkText {
   href: string;
@@ -68,7 +68,10 @@ const S = {
     justify-content: center;
     flex: 1 1 0px;
     width: 100%;
-    padding: 20px 50px;
+    padding: 20px 40px;
+    @media ${media.mobileOnly} {
+      padding: 10px 20px;
+    }
   `,
 };
 
