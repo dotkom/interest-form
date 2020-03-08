@@ -8,6 +8,7 @@ const InfoText = styled(Paragraph)`
   border-width: 1px 0px;
   border-color: ${colors.grayDarken30};
   border-style: solid;
+  font-size: 1rem;
 `;
 
 const InformationArea = () => {

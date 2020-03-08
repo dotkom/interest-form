@@ -1,4 +1,4 @@
-import { APIGatewayEvent } from 'aws-lambda';
+import { Handler } from 'aws-lambda';
 import {
   Response,
   INVALID_DATA,
@@ -10,13 +10,12 @@ import {
 } from './constants';
 import nodemailer from 'nodemailer';
 import { getFormattedData } from './util/MailFormatters';
-import { MailOptions } from 'nodemailer/lib/sendmail-transport';
 import { ValidationSchema } from './util/ValidaitonSchema';
 import { FormData } from '../../src/models/Form/Form';
 import { ValidationError } from 'yup';
 import { getAuthFile } from './util/authFile';
 
-export const handler = async (event: APIGatewayEvent): Promise<Response> => {
+export const handler: Handler = async (event, context, callback): Promise<Response> => {
   const authFile = await getAuthFile();
   if (!authFile) {
     return INVALID_AUTHENTICATION;

@@ -27,15 +27,13 @@ const InterestForm = () => {
       initialValues={initialValues}
       onSubmit={async (values) => {
         console.log(JSON.stringify(values));
-        /*
         await fetch(`https://dg34nuugf4.execute-api.eu-west-1.amazonaws.com/prod/sendMail`, {
           method: 'post',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(values),
-        });*/
-        await new Promise((resolve) => setTimeout(resolve, 5000)).then(() => setSubmitted(true));
+        }).then(() => setSubmitted(true));
       }}
       validationSchema={ValidationSchema}
     >
