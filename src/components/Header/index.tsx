@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
   return (
     <S.Header>
       <S.Wrapper>
-        <Logo width="26rem" primaryColor={colors.white} seocondaryColor={colors.primary} />
+        <Logo width="100%" primaryColor={colors.white} secondaryColor={colors.secondary} />
       </S.Wrapper>
       <S.Text>Meld-interesse skjema</S.Text>
     </S.Header>
@@ -18,6 +18,7 @@ const S = {
   Text: styled.h2`
     color: ${colors.white};
     text-align: center;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     padding: 10px 0;
   `,

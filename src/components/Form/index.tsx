@@ -1,11 +1,11 @@
 import { Formik } from 'formik';
-import React, { FormEvent } from 'react';
+import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
 import { colors } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
 import { FormData } from 'models/Form/Form';
 import { Header } from 'components/Header';
-import SubmitButton from './Inputs/SubmitButton';
+import SubmitArea from './Areas/SubmitArea';
 import InformationArea from './Areas/InfromationArea';
 import CompanyArea from './Areas/CompanyArea';
 import CheckboxArea from './Areas/CheckboxArea';
@@ -13,6 +13,7 @@ import CommentsArea from './Areas/CommentsArea';
 import ContactPersonArea from './Areas/ContactPersonArea';
 
 const InterestForm = () => {
+  const [submitted, setSubmitted] = useState(false);
   const initialValues: FormData = {
     companyName: '',
     contactName: '',
@@ -34,14 +35,12 @@ const InterestForm = () => {
           },
           body: JSON.stringify(values),
         });*/
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-        console.log('SENT MAIL');
+        await new Promise((resolve) => setTimeout(resolve, 5000)).then(() => setSubmitted(true));
       }}
       validationSchema={ValidationSchema}
     >
       {({ isSubmitting, setSubmitting, submitForm }) => {
         const submit = async (e: FormEvent<HTMLFormElement>) => {
-          setSubmitting(true);
           e.preventDefault();
           await submitForm()
             .then(() => setSubmitting(false))
@@ -56,7 +55,7 @@ const InterestForm = () => {
             <ContactPersonArea />
             <CheckboxArea />
             <CommentsArea />
-            <SubmitButton onClick={submit} isSubmitting={isSubmitting} />
+            <SubmitArea onClick={submit} isSubmitting={isSubmitting} submitted={submitted} />
           </Form>
         );
       }}

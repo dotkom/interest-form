@@ -25,7 +25,7 @@ const getDescription = (description: string, link?: LinkText) => {
     return (
       <S.Text>
         {description.substr(0, subIndex)}
-        <Link>{link.subString}</Link>
+        <Link href={link?.href}>{link.subString}</Link>
         {description.substr(subIndex + link.subString.length - 1, -1)}
       </S.Text>
     );
