@@ -2,17 +2,15 @@ import * as Yup from 'yup';
 import { FormData } from '../models/Form/Form';
 
 export const ValidationSchema = Yup.object<FormData>().shape({
-  companyName: Yup.string().required('Required'),
-  contactName: Yup.string().required('Required'),
+  companyName: Yup.string().required('Dette feltet er påkrevd'),
+  contactName: Yup.string().required('Dette feltet er påkrevd'),
   contactMail: Yup.string()
-    .required('Required')
-    .email('Invalid mail'),
+    .required('Dette feltet er påkrevd')
+    .email('Ugyldig format på mailen'),
   phone: Yup.string()
-    .required('Required')
-    .matches(
-      /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/,
-      'Phone number is invalid, please try the format of +xx xxx xx xxx'
-    )
-    .min(8, 'Too short!'),
-  comments: Yup.string().required('Required'),
+    .required('Dette feltet er påkrevd')
+    .matches(/([\+]{0,1}[0-9])/, 'Telefonnummer er ugyldig og bør kun inneholde tall og maks 1 "+"')
+    .min(8, 'Telefonnummer for kort!')
+    .max(11, 'Telefonnummeret er for langt!'),
+  comments: Yup.string().required('Dette feltet er påkrevd'),
 });

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors, Icon } from '@dotkomonline/design-system';
+import { colors, Icon, Paragraph } from '@dotkomonline/design-system';
 import Area from '../Area';
 
-const InfoText = styled.p`
+const InfoText = styled(Paragraph)`
   padding: 15px 0px;
   border-width: 1px 0px;
   border-color: ${colors.grayDarken30};
