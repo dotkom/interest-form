@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, Spinner, Paragraph } from '@dotkomonline/design-system';
+import { Button, Spinner, Paragraph, media } from '@dotkomonline/design-system';
 import Area from '../Area';
 
 interface SubmitAreaProps {
@@ -41,6 +41,9 @@ const S = {
     display: flex;
     justify-content: center;
     align-self: center;
+    @media ${(media.mobileOnly, media.tabletOnly)} {
+      width: 100%;
+    }
   `,
 };
 export default SubmitArea;

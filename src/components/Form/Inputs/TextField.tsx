@@ -1,6 +1,6 @@
 import { useField } from 'formik';
 import React, { FC, ComponentProps } from 'react';
-import { TextField as DsTextField } from '@dotkomonline/design-system';
+import { TextField as DsTextField, media } from '@dotkomonline/design-system';
 import styled from 'styled-components';
 
 type TextFieldProps = ComponentProps<typeof DsTextField>;
@@ -26,6 +26,9 @@ const S = {
   InputDiv: styled.div`
     margin: 0.7rem 0;
     width: 85%;
+    @media ${media.mobileOnly}, ${media.tabletOnly} {
+      width: 100%;
+    }
   `,
   Wrapper: styled.div`
     display: flex;
