@@ -28,12 +28,12 @@ const S = {
   ButtonDiv: styled.div`
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    width: 30%;
     min-height: 50px;
     padding: 10px 0;
   `,
   SpinnerDiv: styled.div`
-    width: 100%;
+    width: 70%;
     min-height: 50px;
   `,
   Wrapper: styled.div`
