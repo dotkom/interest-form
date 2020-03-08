@@ -40,11 +40,8 @@ const InterestForm = () => {
       {({ isSubmitting, setSubmitting, submitForm }) => {
         const submit = async (e: FormEvent<HTMLFormElement>) => {
           e.preventDefault();
-          await submitForm()
-            .then(() => setSubmitting(false))
-            .then(() => console.log(isSubmitting));
+          await submitForm().then(() => setSubmitting(false));
         };
-        console.log(isSubmitting);
         return (
           <Form>
             <Header />
