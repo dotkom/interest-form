@@ -7,7 +7,7 @@ interface LinkText {
   subString: string;
 }
 
-interface CategoryProps {
+interface AreaProps {
   title?: string;
   description?: string;
   link?: LinkText;
@@ -34,7 +34,7 @@ const getDescription = (description: string, link?: LinkText) => {
   }
 };
 
-const Category: FC<CategoryProps> = ({ title, link, description, children }) => {
+const Area: FC<AreaProps> = ({ title, link, description, children }) => {
   return (
     <S.Section>
       <S.Wrapper>
@@ -72,4 +72,4 @@ const S = {
   `,
 };
 
-export default Category;
+export default Area;

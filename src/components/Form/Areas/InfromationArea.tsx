@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors, Icon } from '@dotkomonline/design-system';
-import Category from '../Category';
+import Area from '../Area';
 
 const InfoText = styled.p`
   padding: 15px 0px;
@@ -10,9 +10,9 @@ const InfoText = styled.p`
   border-style: solid;
 `;
 
-const InformationSection = () => {
+const InformationArea = () => {
   return (
-    <Category>
+    <Area>
       <InfoText>
         Dette er et interessesjema bla bla bla og vi garantere ingenting bla bla Lorem Ipsum is simply dummy text of the
         printing and typesetting industry.
@@ -25,8 +25,8 @@ const InformationSection = () => {
         <Icon name="accessibility" />
         Dette er en T-pose
       </InfoText>
-    </Category>
+    </Area>
   );
 };
 
-export default InformationSection;
+export default InformationArea;

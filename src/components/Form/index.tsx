@@ -1,16 +1,16 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { FormEvent } from 'react';
 import styled from 'styled-components';
-import CompanySection from './Sections/CompanySection';
-import ContactPersonSection from './Sections/ContactPersonSection';
 import { colors } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
-import CheckboxSection from './Sections/CheckboxSection';
 import { FormData } from 'models/Form/Form';
-import InformationSection from './Sections/InformationSection';
 import { Header } from 'components/Header';
-import CommentsSection from './Sections/CommentsSection';
-import SubmitButton from './SubmitButton';
+import SubmitButton from './Inputs/SubmitButton';
+import InformationArea from './Areas/InfromationArea';
+import CompanyArea from './Areas/CompanyArea';
+import CheckboxArea from './Areas/CheckboxArea';
+import CommentsArea from './Areas/CommentsArea';
+import ContactPersonArea from './Areas/ContactPersonArea';
 
 const InterestForm = () => {
   const initialValues: FormData = {
@@ -26,28 +26,40 @@ const InterestForm = () => {
       initialValues={initialValues}
       onSubmit={async (values) => {
         console.log(JSON.stringify(values));
+        /*
         await fetch(`https://dg34nuugf4.execute-api.eu-west-1.amazonaws.com/prod/sendMail`, {
           method: 'post',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(values),
-        });
+        });*/
+        await new Promise((resolve) => setTimeout(resolve, 5000));
         console.log('SENT MAIL');
       }}
       validationSchema={ValidationSchema}
     >
-      {({ handleSubmit }) => (
-        <Form>
-          <Header />
-          <InformationSection />
-          <CompanySection />
-          <ContactPersonSection />
-          <CheckboxSection />
-          <CommentsSection />
-          <SubmitButton onClick={handleSubmit} />
-        </Form>
-      )}
+      {({ isSubmitting, setSubmitting, submitForm }) => {
+        const submit = async (e: FormEvent<HTMLFormElement>) => {
+          setSubmitting(true);
+          e.preventDefault();
+          await submitForm()
+            .then(() => setSubmitting(false))
+            .then(() => console.log(isSubmitting));
+        };
+        console.log(isSubmitting);
+        return (
+          <Form>
+            <Header />
+            <InformationArea />
+            <CompanyArea />
+            <ContactPersonArea />
+            <CheckboxArea />
+            <CommentsArea />
+            <SubmitButton onClick={submit} isSubmitting={isSubmitting} />
+          </Form>
+        );
+      }}
     </Formik>
   );
 };

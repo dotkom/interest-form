@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import Category from '../Category';
+import Area from '../Area';
 import TextField from '../Inputs/TextField';
 
-const CompanySection: FC<{}> = () => {
+const CompanyArea: FC<{}> = () => {
   return (
-    <Category title="Bedrift">
+    <Area title="Bedrift">
       <TextField name="companyName" label="Bedriftsnavn" placeholder="Bedrift AS" />
-    </Category>
+    </Area>
   );
 };
 
-export default CompanySection;
+export default CompanyArea;

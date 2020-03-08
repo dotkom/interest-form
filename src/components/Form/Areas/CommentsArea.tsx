@@ -1,16 +1,16 @@
 import React from 'react';
-import Category from '../Category';
+import Area from '../Area';
 import TextArea from '../Inputs/TextArea';
 
-const CommentsSection = () => {
+const CommentsArea = () => {
   return (
-    <Category title="Kommentarer">
+    <Area title="Kommentarer">
       <TextArea
         name="comments"
         placeholder="Gjerne utdyp hvem dere er, hva dere spesifikt ønsker, hvordan dere ønsker arrangementet utført og annet relevant"
       />
-    </Category>
+    </Area>
   );
 };
 
-export default CommentsSection;
+export default CommentsArea;

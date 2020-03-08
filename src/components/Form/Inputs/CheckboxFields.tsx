@@ -1,15 +1,15 @@
 import React from 'react';
-import Checkbox from '../Inputs/Checkbox';
+import Checkbox from './Checkbox';
 import { FieldArray } from 'formik';
 import styled from 'styled-components';
 import { CheckboxItem } from 'models/Form/Inputs/Checkbox';
 
-interface CheckboxAreaProps<T> {
+interface CheckboxFieldsProps<T> {
   values: CheckboxItem<T>[];
   name: string;
 }
 
-function CheckboxArea<T>({ values, name }: CheckboxAreaProps<T>) {
+function CheckboxFields<T>({ values, name }: CheckboxFieldsProps<T>) {
   return (
     <S.Wrapper>
       <FieldArray name={name}>
@@ -43,4 +43,4 @@ const S = {
   `,
 };
 
-export default CheckboxArea;
+export default CheckboxFields;
