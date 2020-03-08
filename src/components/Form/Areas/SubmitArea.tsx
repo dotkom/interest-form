@@ -18,7 +18,7 @@ const SubmitArea = ({ onClick, isSubmitting, submitted }: SubmitAreaProps) => {
           {submitted ? <Paragraph>Din interesse har blitt sendt inn!</Paragraph> : null}
         </S.SpinnerDiv>
         <S.ButtonDiv>
-          <Button color="primary" value="Send inn" onClick={onClick} />
+          <Button color="primary" value="Send inn" onClick={onClick} disabled={submitted} />
         </S.ButtonDiv>
       </S.Wrapper>
     </Area>
