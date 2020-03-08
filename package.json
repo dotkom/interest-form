@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dotkomonline/design-system": "^0.11.1",
+    "@dotkomonline/design-system": "^0.14.0",
+    "@types/aws-lambda": "^8.10.46",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
     "eslint": "^6.7.2",

@@ -1,12 +1,13 @@
-import React, { ComponentProps, useState } from 'react';
+import React, { useState } from 'react';
 import { Checkbox as DsCheckbox } from '@dotkomonline/design-system';
 import { FieldArrayRenderProps } from 'formik';
 
-interface CheckboxProps<T> extends ComponentProps<typeof DsCheckbox> {
+interface CheckboxProps<T> {
   arrayHelpers: FieldArrayRenderProps;
   value: T;
   key: string;
   name: string;
+  label: string;
 }
 function Checkbox<T>({ name, label, arrayHelpers, value, ...props }: CheckboxProps<T>) {
   const [checked, setChecked] = useState(false);

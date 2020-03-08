@@ -1,18 +1,19 @@
 import { Formik } from 'formik';
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
-import CompanySection from './Sections/CompanySection';
-import ContactPersonSection from './Sections/ContactPersonSection';
-import { colors } from '@dotkomonline/design-system';
+import { colors, media } from '@dotkomonline/design-system';
 import { ValidationSchema } from '../../util/ValidaitonSchema';
-import CheckboxSection from './Sections/CheckboxSection';
 import { FormData } from 'models/Form/Form';
-import InformationSection from './Sections/InformationSection';
 import { Header } from 'components/Header';
-import CommentsSection from './Sections/CommentsSection';
-import SubmitButton from './SubmitButton';
+import SubmitArea from './Areas/SubmitArea';
+import InformationArea from './Areas/InfromationArea';
+import CompanyArea from './Areas/CompanyArea';
+import CheckboxArea from './Areas/CheckboxArea';
+import CommentsArea from './Areas/CommentsArea';
+import ContactPersonArea from './Areas/ContactPersonArea';
 
 const InterestForm = () => {
+  const [submitted, setSubmitted] = useState(false);
   const initialValues: FormData = {
     companyName: '',
     contactName: '',
@@ -32,34 +33,46 @@ const InterestForm = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(values),
-        });
-        console.log('SENT MAIL');
+        }).then(() => setSubmitted(true));
       }}
       validationSchema={ValidationSchema}
     >
-      {({ handleSubmit }) => (
-        <Form>
-          <Header />
-          <InformationSection />
-          <CompanySection />
-          <ContactPersonSection />
-          <CheckboxSection />
-          <CommentsSection />
-          <SubmitButton onClick={handleSubmit} />
-        </Form>
-      )}
+      {({ isSubmitting, setSubmitting, submitForm }) => {
+        const submit = async (e: FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          await submitForm()
+            .then(() => setSubmitting(false))
+            .then(() => console.log(isSubmitting));
+        };
+        console.log(isSubmitting);
+        return (
+          <Form>
+            <Header />
+            <InformationArea />
+            <CompanyArea />
+            <ContactPersonArea />
+            <CheckboxArea />
+            <CommentsArea />
+            <SubmitArea onClick={submit} isSubmitting={isSubmitting} submitted={submitted} />
+          </Form>
+        );
+      }}
     </Formik>
   );
 };
 
 const Form = styled.form`
-  width: 50rem;
+  max-width: 50rem;
+  width: 90%;
   background-color: ${colors.white};
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
   margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media ${media.mobileOnly} {
+    width: 100%;
+  }
 `;
 
 export default InterestForm;

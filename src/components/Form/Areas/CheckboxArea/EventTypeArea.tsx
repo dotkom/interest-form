@@ -1,8 +1,9 @@
 import React from 'react';
-import CheckboxArea from 'components/Form/Inputs/CheckboxArea';
-import Category from 'components/Form/Category';
+import CheckboxField from 'components/Form/Inputs/CheckboxFields';
 import { CheckboxItem } from 'models/Form/Inputs/Checkbox';
-const EventTypeSection = () => {
+import Area from 'components/Form/Area';
+
+const EventTypeArea = () => {
   const eventInterests: CheckboxItem<string>[] = [
     { label: 'Bedriftspresentasjon', value: 'bedpres' },
     { label: 'Kurs', value: 'kurs' },
@@ -12,14 +13,14 @@ const EventTypeSection = () => {
   ];
 
   return (
-    <Category
+    <Area
       title="Arrangement"
       link={{ href: 'https://online.ntnu.no/', subString: 'mer info' }}
       description={'Vil du vite mer om de ulike type arrangementene? Trykk her for mer info.'}
     >
-      <CheckboxArea<string> values={eventInterests} name="interests" />
-    </Category>
+      <CheckboxField<string> values={eventInterests} name="interests" />
+    </Area>
   );
 };
 
-export default EventTypeSection;
+export default EventTypeArea;

@@ -1046,10 +1046,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
   integrity sha512-6It2EVfGskxZCQhuykrfnALg7oVeiI6KclWSmGDqB0AiInVrTGB9Jp9i4/Ad21u9Jde/voVQz6eFX/eSg/UsPA==
 
-"@dotkomonline/design-system@^0.11.1":
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/@dotkomonline/design-system/-/design-system-0.11.2.tgz#063b1f1deb166a4c1a4065f5c6c3075b70b3ab8e"
-  integrity sha512-1Fyy6fHr14IL/mkHgS0Fw4hiDc84z02BUoq5a0Ujm+wWq0G6ZhwWtSL6Lzrf1oLsIALOoSyXeiRQ9l28ReDHmw==
+"@dotkomonline/design-system@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@dotkomonline/design-system/-/design-system-0.14.0.tgz#7eadd7086c137d24dae698aa4cdab9cfc4edf482"
+  integrity sha512-XLIpeJv/4AhWfvKAan7cu/PkNR5oxBrd0HbjEuHlGaLjUyKODZGqTmEmTWuCkeEGC2ppY6see/wVUVzyFxDJdw==
   dependencies:
     "@storybook/addon-a11y" "^5.3.12"
     "@storybook/addon-actions" "^5.3.12"
@@ -2001,6 +2001,11 @@
     "@svgr/plugin-jsx" "^4.3.3"
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
+
+"@types/aws-lambda@^8.10.46":
+  version "8.10.46"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.46.tgz#3246348cdc15921bd065966109fc1c6f6d5cfd96"
+  integrity sha512-88E4Hlypo3AE40wslm7N4n09lCIJwgYJm5wsaA3/Vib1xqjC/ANePTaPRpPdj9NzBSpw7Tgon58qGMYEArx4oA==
 
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.7"

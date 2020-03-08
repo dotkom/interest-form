@@ -1,15 +1,16 @@
 import React from 'react';
-import Checkbox from '../Inputs/Checkbox';
+import Checkbox from './Checkbox';
 import { FieldArray } from 'formik';
 import styled from 'styled-components';
 import { CheckboxItem } from 'models/Form/Inputs/Checkbox';
+import { media } from '@dotkomonline/design-system';
 
-interface CheckboxAreaProps<T> {
+interface CheckboxFieldsProps<T> {
   values: CheckboxItem<T>[];
   name: string;
 }
 
-function CheckboxArea<T>({ values, name }: CheckboxAreaProps<T>) {
+function CheckboxFields<T>({ values, name }: CheckboxFieldsProps<T>) {
   return (
     <S.Wrapper>
       <FieldArray name={name}>
@@ -36,6 +37,9 @@ const S = {
     gap: 1rem;
     margin-top: 0.5rem;
     width: 85%;
+    @media ${media.mobileOnly}, ${media.tabletOnly} {
+      width: 100%;
+    }
   `,
   Wrapper: styled.div`
     display: flex;
@@ -43,4 +47,4 @@ const S = {
   `,
 };
 
-export default CheckboxArea;
+export default CheckboxFields;

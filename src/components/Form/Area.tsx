@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { colors, Link } from '@dotkomonline/design-system';
+import { colors, Link, media } from '@dotkomonline/design-system';
 
 interface LinkText {
   href: string;
   subString: string;
 }
 
-interface CategoryProps {
+interface AreaProps {
   title?: string;
   description?: string;
   link?: LinkText;
@@ -25,7 +25,7 @@ const getDescription = (description: string, link?: LinkText) => {
     return (
       <S.Text>
         {description.substr(0, subIndex)}
-        <Link>{link.subString}</Link>
+        <Link href={link?.href}>{link.subString}</Link>
         {description.substr(subIndex + link.subString.length - 1, -1)}
       </S.Text>
     );
@@ -34,7 +34,7 @@ const getDescription = (description: string, link?: LinkText) => {
   }
 };
 
-const Category: FC<CategoryProps> = ({ title, link, description, children }) => {
+const Area: FC<AreaProps> = ({ title, link, description, children }) => {
   return (
     <S.Section>
       <S.Wrapper>
@@ -69,7 +69,10 @@ const S = {
     flex: 1 1 0px;
     width: 100%;
     padding: 20px 50px;
+    @media ${media.mobileOnly} {
+      padding: 10px 20px;
+    }
   `,
 };
 
-export default Category;
+export default Area;
