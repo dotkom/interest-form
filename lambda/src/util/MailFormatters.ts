@@ -8,7 +8,7 @@ export const getFormattedData = (form: FormData, isConfirmMail: boolean) => {
       isConfirmMail
         ? 'Vi vil meddele at deres interesse med følgende data har blitt sendt inn:'
         : 'En bedrift har meldt interesse'
-    }
+    }<br>
     <b>Bedrift</b><br>
     Bedriftsnavn: ${companyName}<br><br>
     <b>Kontaktperson</b><br>
