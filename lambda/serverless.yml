@@ -8,7 +8,7 @@ provider:
 
 functions:
   interest-mailer:
-    handler: dist/lambda/src/mailer.handler
+    handler: dist/lambda/src/handler.handler
     package:
       excludeDevDependencies: true
     events:
