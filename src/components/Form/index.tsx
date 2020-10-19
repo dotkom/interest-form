@@ -1,6 +1,8 @@
 import { Formik } from 'formik';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
+import { FormData } from 'common/FormData';
+import { ValidationSchema } from 'common/ValidaitonSchema';
 import InformationArea from './Areas/InformationArea';
 import { Banner } from '../Banner';
 import CompanyArea from './Areas/CompanyArea';
@@ -8,8 +10,6 @@ import ContactPersonArea from './Areas/ContactPersonArea';
 import InterestArea from './Areas/InterestArea';
 import CommentsArea from './Areas/CommentsArea';
 import SubmitArea from './Areas/SubmitArea';
-import { FormData } from 'common/FormData';
-import { ValidationSchema } from 'common/ValidaitonSchema';
 
 const InterestForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -70,7 +70,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem;
+  margin: 2rem 0;
 `;
 
 export default InterestForm;

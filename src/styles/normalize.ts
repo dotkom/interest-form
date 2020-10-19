@@ -1,4 +1,7 @@
 export default `
+  :root {
+    --font-size-md:14px;
+  }
   html {
     box-sizing: border-box;
     background-color: #f2f2f2

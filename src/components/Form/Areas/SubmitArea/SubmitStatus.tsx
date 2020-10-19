@@ -1,6 +1,5 @@
 import { Spinner, Message } from '@dotkomonline/design-system';
 import React, { FC } from 'react';
-import styled from 'styled-components';
 
 interface SubmitStatusProps {
   loading: boolean;
