@@ -1,59 +1,64 @@
 {
-  "name": "rad-rif",
-  "version": "0.1.0",
+  "name": "gatsby-starter-typescript-plus",
+  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
+  "version": "1.0.0",
   "private": true,
+  "author": "Resi Respati <resir014@gmail.com>",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "rimraf public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "start": "npm run dev",
+    "test": "npm run type-check && npm run lint",
+    "type-check": "tsc"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "dependencies": {
-    "@dotkomonline/design-system": "^0.14.0",
-    "@types/aws-lambda": "^8.10.46",
-    "@typescript-eslint/eslint-plugin": "^2.9.0",
-    "@typescript-eslint/parser": "^2.9.0",
-    "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.17.0",
-    "formik": "^2.1.1",
-    "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-app-polyfill": "^1.0.6",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0",
-    "styled-components": "^4.4.1",
-    "ts-node": "^8.5.4",
-    "typescript": "3.7.2",
-    "yup": "^0.27.0"
+    "@dotkomonline/design-system": "^0.22.0",
+    "babel-plugin-styled-components": "^1.10.1",
+    "classnames": "^2.2.6",
+    "formik": "^2.2.0",
+    "gatsby": "^2.24.0",
+    "gatsby-alias-imports": "^1.0.4",
+    "gatsby-plugin-canonical-urls": "^2.1.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-styled-components": "^3.3.14",
+    "gatsby-plugin-typescript": "^2.1.0",
+    "modern-normalize": "^0.5.0",
+    "normalize.css": "^8.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^5.2.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.5.2",
+    "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@types/jest": "24.0.23",
-    "@types/node": "12.12.11",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.4",
-    "@types/styled-components": "^4.4.0",
-    "@types/yup": "^0.26.26"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "yarn lint:tsc && yarn lint:eslint",
-    "lint:eslint": "eslint './src/**/*.{js,ts,tsx}' --max-warnings 0",
-    "lint:report": "eslint --output-file eslint_report.json './src/**/*.{js,ts,tsx}'",
-    "lint:tsc": "tsc --noEmit",
-    "lint-fix": "eslint './src/**/*.{js,ts,tsx}' --fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@types/aws-lambda": "^8.10.64",
+    "@types/node": "^12.0.10",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
+    "@types/styled-components": "^5.1.4",
+    "@types/yup": "^0.29.8",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-blvd": "^1.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
   }
 }

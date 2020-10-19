@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Area from '../Area';
-import TextField from '../Inputs/TextField';
+import TextField from '../../Inputs/TextField';
+import Area from '../../Area';
 
 const CompanyArea: FC<{}> = () => {
   return (

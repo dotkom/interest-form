@@ -10,8 +10,8 @@ import {
 } from './constants';
 import nodemailer from 'nodemailer';
 import { getFormattedData } from './util/MailFormatters';
-import { ValidationSchema } from './util/ValidaitonSchema';
-import { FormData } from '../../src/models/Form/Form';
+import { ValidationSchema } from '../../common/ValidaitonSchema';
+import { FormData } from '../../common/FormData';
 import { ValidationError } from 'yup';
 import { getAuthFile } from './util/authFile';
 

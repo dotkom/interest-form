@@ -1,6 +1,6 @@
 import React from 'react';
-import Area from '../Area';
-import TextField from '../Inputs/TextField';
+import Area from '../../Area';
+import TextField from '../../Inputs/TextField';
 
 const ContactPersonArea = () => {
   return (

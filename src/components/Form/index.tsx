@@ -1,16 +1,15 @@
 import { Formik } from 'formik';
 import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
-import { colors, media } from '@dotkomonline/design-system';
-import { ValidationSchema } from '../../util/ValidaitonSchema';
-import { FormData } from 'models/Form/Form';
-import { Header } from 'components/Header';
-import SubmitArea from './Areas/SubmitArea';
-import InformationArea from './Areas/InfromationArea';
+import InformationArea from './Areas/InformationArea';
+import { Banner } from '../Banner';
 import CompanyArea from './Areas/CompanyArea';
-import CheckboxArea from './Areas/CheckboxArea';
-import CommentsArea from './Areas/CommentsArea';
 import ContactPersonArea from './Areas/ContactPersonArea';
+import InterestArea from './Areas/InterestArea';
+import CommentsArea from './Areas/CommentsArea';
+import SubmitArea from './Areas/SubmitArea';
+import { FormData } from 'common/FormData';
+import { ValidationSchema } from 'common/ValidaitonSchema';
 
 const InterestForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -26,7 +25,6 @@ const InterestForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={async (values) => {
-        console.log(JSON.stringify(values));
         await fetch(`https://dg34nuugf4.execute-api.eu-west-1.amazonaws.com/prod/sendMail`, {
           method: 'post',
           headers: {
@@ -34,23 +32,30 @@ const InterestForm = () => {
           },
           body: JSON.stringify(values),
         }).then(() => setSubmitted(true));
+        setSubmitted(true);
       }}
       validationSchema={ValidationSchema}
     >
-      {({ isSubmitting, setSubmitting, submitForm }) => {
+      {({ isSubmitting, setSubmitting, submitForm, errors, submitCount }) => {
         const submit = async (e: FormEvent<HTMLFormElement>) => {
           e.preventDefault();
           await submitForm().then(() => setSubmitting(false));
         };
         return (
           <Form>
-            <Header />
+            <Banner />
             <InformationArea />
             <CompanyArea />
             <ContactPersonArea />
-            <CheckboxArea />
+            <InterestArea />
             <CommentsArea />
-            <SubmitArea onClick={submit} isSubmitting={isSubmitting} submitted={submitted} />
+            <SubmitArea
+              onClick={submit}
+              isSubmitting={isSubmitting}
+              submitted={submitted}
+              hasErrors={!!errors}
+              submitCount={submitCount}
+            />
           </Form>
         );
       }}
@@ -59,17 +64,13 @@ const InterestForm = () => {
 };
 
 const Form = styled.form`
-  max-width: 50rem;
-  width: 90%;
-  background-color: ${colors.white};
+  height: 100%;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media ${media.mobileOnly} {
-    width: 100%;
-  }
+  margin-top: 1.5rem;
 `;
 
 export default InterestForm;

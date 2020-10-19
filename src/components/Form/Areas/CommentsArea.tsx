@@ -1,6 +1,6 @@
 import React from 'react';
-import Area from '../Area';
-import TextArea from '../Inputs/TextArea';
+import Area from '../../Area';
+import TextArea from '../../Inputs/TextArea';
 
 const CommentsArea = () => {
   return (
