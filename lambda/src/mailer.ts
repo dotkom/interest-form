@@ -1,18 +1,17 @@
 import nodemailer from 'nodemailer';
 import { ValidationError } from 'yup';
-import { MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION, RECIEVER, SENDER_EMAIL } from './constants';
+import { Response, MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION, RECIEVER, SENDER_EMAIL } from './constants';
 import { getFormattedData } from './util/MailFormatters';
 import { ValidationSchema } from '../../common/ValidaitonSchema';
 import { FormData } from '../../common/FormData';
 import { getAuthFile } from './util/authFile';
 
-export const mailer = async (body: string) => {
+export const mailer = async (data: FormData): Promise<Response> => {
   const authFile = await getAuthFile();
   if (!authFile) {
     return INVALID_AUTHENTICATION;
   }
 
-  const data: FormData = await JSON.parse(body);
   // Validates incomming data
   await ValidationSchema.validate(data).catch((err: ValidationError) => {
     return {

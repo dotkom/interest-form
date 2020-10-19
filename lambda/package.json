@@ -1,5 +1,5 @@
 {
-  "name": "hello-world-lambda",
+  "name": "rad-rif-lambda",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "deploy": "NODE_ENV=production && npm run build && sls deploy",
