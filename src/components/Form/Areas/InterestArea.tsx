@@ -1,8 +1,7 @@
 import React from 'react';
-import Area from '../../Area';
-import Checkbox from '../../Inputs/Checkbox';
-import { Icon } from '@dotkomonline/design-system';
 import styled from 'styled-components';
+import Area from 'src/components/Area';
+import Checkbox from 'src/components/Inputs/Checkbox';
 
 interface Interest {
   label: string;
