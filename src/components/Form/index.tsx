@@ -13,6 +13,8 @@ import SubmitArea from './Areas/SubmitArea';
 
 const InterestForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
   const initialValues: FormData = {
     companyName: '',
     contactName: '',
@@ -25,16 +27,19 @@ const InterestForm = () => {
     <Formik
       initialValues={initialValues}
       onSubmit={async (values) => {
-        await fetch(`https://dg34nuugf4.execute-api.eu-west-1.amazonaws.com/prod/sendMail`, {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(values),
-        })
-          .then(() => setSubmitted(true))
-          .catch((err) => console.log(err));
-        setSubmitted(true);
+        try {
+          const res = await fetch(`https://dg34nuugf4.execute-api.eu-west-1.amazonaws.com/prod/sendMail`, {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+          });
+          if (res.status === 200) setSubmitted(true);
+        } catch (err) {
+          console.log(err);
+          setHasError(true);
+        }
       }}
       validationSchema={ValidationSchema}
     >
@@ -43,6 +48,8 @@ const InterestForm = () => {
           e.preventDefault();
           await submitForm().then(() => setSubmitting(false));
         };
+        // Checks if errors is empty. 0 will turn into true, anything else is false
+        const isValid = !Object.keys(errors).length;
         return (
           <Form>
             <Banner />
@@ -53,10 +60,11 @@ const InterestForm = () => {
             <CommentsArea />
             <SubmitArea
               onClick={submit}
-              isSubmitting={isSubmitting}
+              loading={isSubmitting}
               submitted={submitted}
-              hasErrors={!!errors}
+              isValid={isValid}
               submitCount={submitCount}
+              hasError={hasError}
             />
           </Form>
         );

@@ -6,18 +6,19 @@ import SubmitStatus from './SubmitStatus';
 
 interface SubmitAreaProps {
   onClick: (e: React.FormEvent<HTMLFormElement>) => void;
-  isSubmitting: boolean;
+  loading: boolean;
   submitted: boolean;
-  hasErrors: boolean;
+  isValid: boolean;
+  hasError: boolean;
   submitCount: number;
 }
 
-const SubmitArea: FC<SubmitAreaProps> = ({ onClick, isSubmitting, ...props }) => {
+const SubmitArea: FC<SubmitAreaProps> = ({ onClick, ...props }) => {
   return (
     <Area>
       <S.Wrapper>
-        <SubmitStatus loading={isSubmitting} {...props} />
-        <Button color="primary" value="Send inn" onClick={onClick} disabled={props.submitted || isSubmitting} />
+        <SubmitStatus {...props} />
+        <Button color="primary" value="Send inn" onClick={onClick} disabled={props.submitted || props.loading} />
       </S.Wrapper>
     </Area>
   );
