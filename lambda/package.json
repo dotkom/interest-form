@@ -2,7 +2,7 @@
   "name": "hello-world-lambda",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "deploy": "yarn build && sls deploy",
+    "deploy": "NODE_ENV=production && npm run build && sls deploy",
     "deploy:only": "sls deploy"
   },
   "dependencies": {
