@@ -31,7 +31,9 @@ const InterestForm = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(values),
-        }).then(() => setSubmitted(true));
+        })
+          .then(() => setSubmitted(true))
+          .catch((err) => console.log(err));
         setSubmitted(true);
       }}
       validationSchema={ValidationSchema}
