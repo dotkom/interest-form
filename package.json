@@ -41,7 +41,6 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.2.0",
-    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.5.2",
     "yup": "^0.29.3"
   },
