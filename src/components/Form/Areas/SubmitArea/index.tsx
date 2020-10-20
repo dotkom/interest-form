@@ -18,7 +18,9 @@ const SubmitArea: FC<SubmitAreaProps> = ({ onClick, ...props }) => {
     <Area>
       <S.Wrapper>
         <SubmitStatus {...props} />
-        <Button color="primary" value="Send inn" onClick={onClick} disabled={props.submitted || props.loading} />
+        <S.ButtonDiv>
+          <Button color="primary" value="Send inn" onClick={onClick} disabled={props.submitted || props.loading} />
+        </S.ButtonDiv>
       </S.Wrapper>
     </Area>
   );
@@ -31,8 +33,12 @@ const S = {
     display: grid;
     grid-template-columns: 3.5fr 1.5fr;
     gap: 2rem;
+  `,
+  ButtonDiv: styled.div`
+    display: flex;
+    justify-content: flex-end;
     & > button {
-      max-height: 44px;
+      height: max-content;
     }
   `,
 };
