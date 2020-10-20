@@ -17,7 +17,7 @@ export const spreadsheet = async (data: FormData, authFile: GoogleAuthFile): Pro
     companyName,
     contactName,
     contactMail,
-    phone,
+    phone: phone as string,
     comments,
     bedpres: false,
     kurs: false,
