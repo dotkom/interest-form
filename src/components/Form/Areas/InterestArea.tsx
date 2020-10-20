@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import Area from 'src/components/Area';
 import Checkbox from 'src/components/Inputs/Checkbox';
+import { Interest } from '../../../../common/FormData';
 
-interface Interest {
+interface CheckboxItem {
   label: string;
-  value: string;
+  value: Interest;
 }
 
 // Bedriftsarrangement, Kurs, Annonse i Offline, Stillingsutlysning, Tech Talks og IT-ekskursjonen.
-const interests: Interest[] = [
+const interests: CheckboxItem[] = [
   {
     label: 'Bedriftsarrangement',
     value: 'bedpres',

@@ -3,6 +3,8 @@ export interface FormData {
   contactName: string;
   contactMail: string;
   phone: string;
-  interests: string[];
+  interests: Interest[];
   comments: string;
 }
+
+export type Interest = 'bedpres' | 'kurs' | 'offline' | 'online_ad' | 'techtalks' | 'excursion';
