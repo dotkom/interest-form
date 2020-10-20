@@ -26,8 +26,8 @@ export const getAuthFile = async (): Promise<null | GoogleAuthFile> => {
 
   const res = await s3.getObject(options).promise();
   if (res.Body) {
-    return await JSON.parse(res.Body.toString('utf-8'));
-  } else {
-    return null;
+    const data = await JSON.parse(res.Body.toString('utf-8'));
+    return data;
   }
+  return null;
 };

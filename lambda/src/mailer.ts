@@ -1,23 +1,16 @@
 import nodemailer from 'nodemailer';
 import { ValidationError } from 'yup';
-import { Response, MAIL_SENT_SUCCESS, SERVER_ERROR, INVALID_AUTHENTICATION, RECIEVER, SENDER_EMAIL } from './constants';
+import { RECIEVER, SENDER_EMAIL } from './constants';
 import { getFormattedData } from './util/MailFormatters';
 import { ValidationSchema } from '../../common/ValidaitonSchema';
 import { FormData } from '../../common/FormData';
-import { getAuthFile } from './util/authFile';
+import { GoogleAuthFile } from './util/authFile';
 
-export const mailer = async (data: FormData): Promise<Response> => {
-  const authFile = await getAuthFile();
-  if (!authFile) {
-    return INVALID_AUTHENTICATION;
-  }
-
+export const mailer = async (data: FormData, authFile: GoogleAuthFile): Promise<boolean> => {
   // Validates incomming data
   await ValidationSchema.validate(data).catch((err: ValidationError) => {
-    return {
-      statusCode: 422,
-      body: err,
-    };
+    console.log(err);
+    throw err;
   });
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -31,25 +24,21 @@ export const mailer = async (data: FormData): Promise<Response> => {
     },
   });
 
-  try {
-    await transporter.verify().catch((err) => console.log(err));
-    // Sends mail to bedkom
-    await transporter.sendMail({
-      from: SENDER_EMAIL,
-      to: RECIEVER,
-      subject: `[Interesse] ${data.companyName}`,
-      html: getFormattedData(data, false),
-    });
+  await transporter.verify();
+  // Sends mail to bedkom
+  await transporter.sendMail({
+    from: SENDER_EMAIL,
+    to: RECIEVER,
+    subject: `[Interesse] ${data.companyName}`,
+    html: getFormattedData(data, false),
+  });
 
-    // Sends confirmation mail to the contact person
-    await transporter.sendMail({
-      from: SENDER_EMAIL,
-      to: data.contactMail,
-      subject: `Deres interesse har blitt meldt`,
-      html: getFormattedData(data, true),
-    });
-    return MAIL_SENT_SUCCESS;
-  } catch (err) {
-    return SERVER_ERROR(err);
-  }
+  // Sends confirmation mail to the contact person
+  await transporter.sendMail({
+    from: SENDER_EMAIL,
+    to: data.contactMail,
+    subject: `Deres interesse har blitt meldt`,
+    html: getFormattedData(data, true),
+  });
+  return true;
 };

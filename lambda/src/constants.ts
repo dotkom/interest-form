@@ -1,5 +1,6 @@
 export const SENDER_EMAIL = process.env.SENDER || 'bedrift-interesse@online.ntnu.no';
 export const RECIEVER = process.env.RECIEVER;
+export const SPREADSHEET_ID = process.env.SHEET_ID;
 
 interface Header {
   'Access-Control-Allow-Origin': '*';
@@ -28,17 +29,17 @@ export const SERVER_ERROR = (err: string): Response => {
   };
 };
 
-export const MAIL_SENT_SUCCESS: Response = {
-  statusCode: 200,
-  body: 'Mail sent!',
+export const INVALID_AUTHENTICATION: Response = {
+  statusCode: 403,
+  body: 'Invalid authentication to mail account',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },
 };
 
-export const INVALID_AUTHENTICATION: Response = {
-  statusCode: 403,
-  body: 'Invalid authentication to mail account',
+export const OkResponse: Response = {
+  statusCode: 200,
+  body: 'Everything went well',
   headers: {
     'Access-Control-Allow-Origin': '*',
   },

@@ -1,12 +1,17 @@
 {
   "name": "rad-rif-lambda",
+  "type": "commonjs",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "deploy": "NODE_ENV=production && npm run build && sls deploy",
-    "deploy:only": "sls deploy"
+    "deploy:only": "sls deploy",
+    "kek": "ts-node src/create.ts"
   },
   "dependencies": {
+    "@types/google-spreadsheet": "^3.0.2",
     "aws-sdk": "^2.633.0",
+    "google-spreadsheet": "^3.0.13",
+    "googleapis": "^39.2.0",
     "nodemailer": "^6.4.4",
     "yup": "^0.27.0"
   },
