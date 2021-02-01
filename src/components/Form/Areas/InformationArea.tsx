@@ -7,16 +7,15 @@ const InformationArea = () => {
   return (
     <Area>
       <S.Wrapper>
+        <Paragraph>Dette skjemaet skal brukes til å melde interesse for samarbeid med Online.</Paragraph>
         <Paragraph>
-          Dette skjemaet skal brukes til å melde interesse for samarbeid med Online. Du kan lese mer om hva Online
-          tilbyr til bedrifter på <Link href="https://online.ntnu.no/#!business">nettsiden vår</Link>.
-        </Paragraph>
-        <Paragraph>
-          I skjemaet har du mulighet til å huke av for interesse av ulike produkt i tillegg til å legge igjen en
-          kommentar eller spørsmål. Innholdet vil bli send på mail til bedriftskomiteen og dere vil få svar så fort de
-          har kapasitet.
+          Når du huker av i en sjekkboks vil vi notere deres interesse og ta dette i betraktning under planlegging av
+          arrangementet. I skjemaet har du også mulighet til å legge igjen en kommentar eller spørsmål. Innholdet vil
+          bli sendt på mail til bedriftskomiteen, og om dere har noen spørsmål vil disse bli besvart så fort det lar seg
+          gjøre. Det er mulig å fylle ut skjemaet flere ganger.
         </Paragraph>
         <Paragraph>Merk at skjemaet kun er for å melde interesse og fungerer da ikke som påmelding.</Paragraph>
+        <Paragraph>Andre henvendelser kan sendes på mail til bedriftskontakt@online.ntnu.no.</Paragraph>
       </S.Wrapper>
     </Area>
   );
