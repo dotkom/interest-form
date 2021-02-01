@@ -7,4 +7,4 @@ export interface FormData {
   comments: string | null;
 }
 
-export type Interest = 'bedpres' | 'kurs' | 'offline' | 'online_ad' | 'techtalks' | 'excursion';
+export type Interest = 'bedpres' | 'offline' | 'online_ad' | 'techtalks' | 'excursion';

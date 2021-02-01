@@ -18,6 +18,6 @@ export const ValidationSchema = Yup.object<FormData>().shape({
     .min(8, 'Telefonnummer for kort!')
     .max(16, 'Telefonnummeret er for langt!'),
   comments: Yup.string()
-    .default('Ingen kommentar')
+    .notRequired()
     .max(2000, 'Prøv å skriv under 2000 tegn'),
 });
