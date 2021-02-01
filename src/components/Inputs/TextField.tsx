@@ -1,6 +1,6 @@
 import { useField } from 'formik';
 import React, { FC, ComponentProps } from 'react';
-import { TextField as DsTextField, media } from '@dotkomonline/design-system';
+import { TextField as DsTextField } from '@dotkomonline/design-system';
 import styled from 'styled-components';
 
 type TextFieldProps = ComponentProps<typeof DsTextField>;

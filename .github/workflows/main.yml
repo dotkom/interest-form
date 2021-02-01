@@ -16,10 +16,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install and lint
+      - name: npm install and lint
         working-directory: ./
         run: |
-            yarn install
-            yarn lint
+          npm install
+          npm run lint
         env:
           CI: true

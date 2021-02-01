@@ -3,7 +3,8 @@ Dette skjemaet skal brukes til å melde interesse for samarbeid med Online.
 
 Når du huker av i en sjekkboks vil vi notere deres interesse og ta dette i betraktning under planlegging av arrangementet. 
 I skjemaet har du også mulighet til å legge igjen en kommentar eller spørsmål.
-Innholdet vil bli sendt på mail til bedriftskomiteen, og om dere har noen spørsmål vil disse bli besvart så fort det lar seg gjøre. Det er mulig å fylle ut skjemaet flere ganger.
+Innholdet vil bli sendt på mail til bedriftskomiteen, og om dere har noen spørsmål vil disse bli besvart så fort det lar seg gjøre. 
+Det er mulig å fylle ut skjemaet flere ganger.
  
 Merk at skjemaet kun er for å melde interesse og fungerer da ikke som påmelding.
 

@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Area from 'src/components/Area';
 import Checkbox from 'src/components/Inputs/Checkbox';
-import { Interest } from '../../../../common/FormData';
 import { Paragraph } from '@dotkomonline/design-system';
+import { Interest } from 'common/FormData';
 
 interface CheckboxItem {
   label: string;

@@ -30,7 +30,7 @@ const S = {
   Details: styled.details`
     margin: 1.25rem 0;
     summary {
-      margin-bottom: 1rem;
+      margin-bot: 1rem;
     }
   `,
 };
