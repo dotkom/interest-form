@@ -1,7 +1,6 @@
 import * as Yup from 'yup';
-import { FormData } from './FormData';
 
-export const ValidationSchema = Yup.object<FormData>().shape({
+export const ValidationSchema = Yup.object().shape({
   companyName: Yup.string()
     .required('Dette feltet er påkrevd')
     .max(250, 'Navnet er for langt'),
