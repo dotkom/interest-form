@@ -4,7 +4,7 @@ export interface FormData {
   contactMail: string;
   phone: string;
   interests: Interest[];
-  comments: string;
+  comments: string | null;
 }
 
 export type Interest = 'bedpres' | 'kurs' | 'offline' | 'online_ad' | 'techtalks' | 'excursion';
