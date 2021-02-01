@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Area from 'src/components/Area';
 import Checkbox from 'src/components/Inputs/Checkbox';
 import { Interest } from '../../../../common/FormData';
+import { Paragraph } from '@dotkomonline/design-system';
 
 interface CheckboxItem {
   label: string;
@@ -16,10 +17,6 @@ const interests: CheckboxItem[] = [
     value: 'bedpres',
   },
   {
-    label: 'Kurs',
-    value: 'kurs',
-  },
-  {
     label: 'Annonse i Offline',
     value: 'offline',
   },
@@ -28,18 +25,21 @@ const interests: CheckboxItem[] = [
     value: 'online_ad',
   },
   {
-    label: 'Tech talks',
+    label: 'Tech Talks',
     value: 'techtalks',
   },
   {
-    label: 'IT-ekskrusjon',
+    label: 'IT-ekskursjonen',
     value: 'excursion',
   },
 ];
 
 const InterestArea = () => {
   return (
-    <Area title="Interesser">
+    <Area title="Hva er dere interessert i?">
+      <Paragraph>
+        Kryss av for det dere vil melde interesse for. Vi vil notere deres interesse, og ta kontakt om dere er aktuelle.
+      </Paragraph>
       <S.Div>
         {interests.map((interest) => (
           <Checkbox name="interests" label={interest.label} value={interest.value} key={interest.value} />

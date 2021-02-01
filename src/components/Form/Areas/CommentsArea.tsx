@@ -7,7 +7,8 @@ const CommentsArea = () => {
     <Area title="Kommentarer">
       <TextArea
         name="comments"
-        placeholder="Gjerne utdyp hvem dere er, hva dere spesifikt ønsker, hvordan dere ønsker arrangementet utført og annet relevant"
+        placeholder="Gjerne utdyp om dere har tanker om hvordan et arrangement kan se ut eller annet
+relevant. Still også spørsmål her om dere lurer på noe."
       />
     </Area>
   );

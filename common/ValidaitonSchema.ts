@@ -17,7 +17,5 @@ export const ValidationSchema = Yup.object<FormData>().shape({
     .matches(/([\+]{0,1}[0-9\s]+)/, 'Telefonnummer er ugyldig og bør kun inneholde tall og maks 1 "+"')
     .min(8, 'Telefonnummer for kort!')
     .max(16, 'Telefonnummeret er for langt!'),
-  comments: Yup.string()
-    .required('Dette feltet er påkrevd')
-    .max(2000, 'Prøv å skriv under 2000 tegn'),
+  comments: Yup.string().max(2000, 'Prøv å skriv under 2000 tegn'),
 });
