@@ -42,7 +42,7 @@
     "react-helmet": "^5.2.1",
     "styled-components": "^5.2.0",
     "typescript": "^3.5.2",
-    "yup": "^0.29.3"
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.64",
@@ -51,7 +51,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^5.1.4",
-    "@types/yup": "^0.29.8",
+    "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
     "eslint": "^6.6.0",
