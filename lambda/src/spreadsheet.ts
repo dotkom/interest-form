@@ -20,7 +20,6 @@ export const spreadsheet = async (data: FormData, authFile: GoogleAuthFile): Pro
     phone: phone as string,
     comments,
     bedpres: false,
-    kurs: false,
     offline: false,
     online_ad: false,
     techtalks: false,

@@ -4,8 +4,6 @@ const slugToText = (slug: string): string => {
   switch (slug) {
     case 'bedpres':
       return 'Bedriftsarrangement';
-    case 'kurs':
-      return 'kurs';
     case 'offline':
       return 'Annonse i Offline';
     case 'online_ad':

@@ -10,7 +10,7 @@ interface CheckboxItem {
   value: Interest;
 }
 
-// Bedriftsarrangement, Kurs, Annonse i Offline, Stillingsutlysning, Tech Talks og IT-ekskursjonen.
+// Bedriftsarrangement, Annonse i Offline, Stillingsutlysning, Tech Talks og IT-ekskursjonen.
 const interests: CheckboxItem[] = [
   {
     label: 'Bedriftsarrangement',
