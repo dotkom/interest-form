@@ -36,7 +36,7 @@ annonse. Annonsen kan inneholde det dere selv ønsker alt etter hvordan dere øn
 profilere dere. Det trenger ikke være en tradisjonell annonse, men kan f. eks være en liten
 novelle, tips og triks eller andre ting bedriften vil skrive om.
 
-#### ITEX, IT-ekskursjonen for 4. og 5. klasse til Oslo høsten 2020
+#### ITEX, IT-ekskursjonen for 4. og 5. klasse til Oslo høsten 2021
 
 I månedsskifte august/september arrangeres den årlige IT-ekskursjonen til Oslo for
 masterstudenter i informatikk ved Norges teknisk- naturvitenskapelige universitet (NTNU) for
